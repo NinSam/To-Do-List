@@ -1,0 +1,344 @@
+{
+	"geode": "3.8.1",
+	"gd": {
+		"win": "2.206",
+		"android": "2.206",
+		"mac": "2.206",
+		"ios": "2.206"
+	},
+	"id": "ninsam.to-do_list",
+	"name": "To-Do List",
+	"version": "v1.0.0",
+	"developer": "NinSam",
+	"description": "Adds a To-Do List in the GD editor",
+	"tags": [
+		"offline",
+		"editor",
+		"utility"
+	],
+	"resources": {
+        "spritesheets":{
+
+			"NotepadSheet":["resources/NotepadSheet/*.png"]
+
+		},
+		"files":[
+			"resources/example.png"
+		]
+    },
+	"settings":{
+		"titlelevel-custom":{
+			"name": "Tab 1",
+			"type": "title"
+		},
+		"textinputname-custom":{
+			"name": "Level Name",
+			"type": "string",
+			"default": ""
+		},
+		"1":{
+			"name": "1.",
+			"type": "string",
+			"default": ""
+		},
+		"2":{
+			"name": "2.",
+			"type": "string",
+			"default": ""
+		},
+		"3":{
+			"name": "3.",
+			"type": "string",
+			"default": ""
+		},
+		"4":{
+			"name": "4.",
+			"type": "string",
+			"default": ""
+		},
+		"5":{
+			"name": "5.",
+			"type": "string",
+			"default": ""
+		},
+		"6":{
+			"name": "6.",
+			"type": "string",
+			"default": ""
+		},
+		"7":{
+			"name": "7.",
+			"type": "string",
+			"default": ""
+		},
+		"8":{
+			"name": "8.",
+			"type": "string",
+			"default": ""
+		},
+		"9":{
+			"name": "9.",
+			"type": "string",
+			"default": ""
+		},
+		"10":{
+			"name": "10.",
+			"type": "string",
+			"default": ""
+		},
+		"titlelevel(clone)-custom":{
+			"name": "Tab 2",
+			"type": "title"
+		},
+		"textinputname(clone)-custom":{
+			"name": "Level Name",
+			"type": "string",
+			"default": ""
+		},
+		"11":{
+			"name": "1.",
+			"type": "string",
+			"default": ""
+		},
+		"12":{
+			"name": "2.",
+			"type": "string",
+			"default": ""
+		},
+		"13":{
+			"name": "3.",
+			"type": "string",
+			"default": ""
+		},
+		"14":{
+			"name": "4.",
+			"type": "string",
+			"default": ""
+		},
+		"15":{
+			"name": "5.",
+			"type": "string",
+			"default": ""
+		},
+		"16":{
+			"name": "6.",
+			"type": "string",
+			"default": ""
+		},
+		"17":{
+			"name": "7.",
+			"type": "string",
+			"default": ""
+		},
+		"18":{
+			"name": "8.",
+			"type": "string",
+			"default": ""
+		},
+		"19":{
+			"name": "9.",
+			"type": "string",
+			"default": ""
+		},
+		"20":{
+			"name": "10.",
+			"type": "string",
+			"default": ""
+		},
+		"titlelevel(clone1)-custom":
+		{
+			"name": "Tab 3",
+			"type": "title"
+		},
+		"textinputname(clone1)-custom":{
+			"name": "Level Name",
+			"type": "string",
+			"default": ""
+		},
+		"21":{
+			"name": "1.",
+			"type": "string",
+			"default": ""
+		},
+		"22":{
+			"name": "2.",
+			"type": "string",
+			"default": ""
+		},
+		"23":{
+			"name": "3.",
+			"type": "string",
+			"default": ""
+		},
+		"24":{
+			"name": "4.",
+			"type": "string",
+			"default": ""
+		},
+		"25":{
+			"name": "5.",
+			"type": "string",
+			"default": ""
+		},
+		"26":{
+			"name": "6.",
+			"type": "string",
+			"default": ""
+		},
+		"27":{
+			"name": "7.",
+			"type": "string",
+			"default": ""
+		},
+		"28":{
+			"name": "8.",
+			"type": "string",
+			"default": ""
+		},
+		"29":{
+			"name": "9.",
+			"type": "string",
+			"default": ""
+		},
+		"30":{
+			"name": "10.",
+			"type": "string",
+			"default": ""
+		},
+		"titlelevel(clone2)-custom":
+		{
+			"name": "Tab 4",
+			"type": "title"
+		},
+		"textinputname(clone2)-custom":{
+			"name": "Level Name",
+			"type": "string",
+			"default": ""
+		},
+		"31":{
+			"name": "1.",
+			"type": "string",
+			"default": ""
+		},
+		"32":{
+			"name": "2.",
+			"type": "string",
+			"default": ""
+		},
+		"33":{
+			"name": "3.",
+			"type": "string",
+			"default": ""
+		},
+		"34":{
+			"name": "4.",
+			"type": "string",
+			"default": ""
+		},
+		"35":{
+			"name": "5.",
+			"type": "string",
+			"default": ""
+		},
+		"36":{
+			"name": "6.",
+			"type": "string",
+			"default": ""
+		},
+		"37":{
+			"name": "7.",
+			"type": "string",
+			"default": ""
+		},
+		"38":{
+			"name": "8.",
+			"type": "string",
+			"default": ""
+		},
+		"39":{
+			"name": "9.",
+			"type": "string",
+			"default": ""
+		},
+		"40":{
+			"name": "10.",
+			"type": "string",
+			"default": ""
+		},
+		"titlelevel(clone3)-custom":
+		{
+			"name": "Tab 5",
+			"type": "title"
+		},
+		"textinputname(clone3)-custom":{
+			"name": "Level Name",
+			"type": "string",
+			"default": ""
+		},
+		"41":{
+			"name": "1.",
+			"type": "string",
+			"default": ""
+		},
+		"42":{
+			"name": "2.",
+			"type": "string",
+			"default": ""
+		},
+		"43":{
+			"name": "3.",
+			"type": "string",
+			"default": ""
+		},
+		"44":{
+			"name": "4.",
+			"type": "string",
+			"default": ""
+		},
+		"45":{
+			"name": "5.",
+			"type": "string",
+			"default": ""
+		},
+		"46":{
+			"name": "6.",
+			"type": "string",
+			"default": ""
+		},
+		"47":{
+			"name": "7.",
+			"type": "string",
+			"default": ""
+		},
+		"48":{
+			"name": "8.",
+			"type": "string",
+			"default": ""
+		},
+		"49":{
+			"name": "9.",
+			"type": "string",
+			"default": ""
+		},
+		"50":{
+			"name": "10.",
+			"type": "string",
+			"default": ""
+		},
+		"titlecolor-custom":{
+			"name": "Button Color",
+			"type": "title",
+			"description": "Changes the color of the button to one of eight colors."
+		},
+		
+		
+		"string-setting-example": {
+    "type": "int",
+    "name": "Button Color",
+	"description": "0 = Default (light blue), 1 = Red, 2 = Orange, 3 = Yellow, 4 = Green, 5 = Blue, 6 = Purple, 7 = Pink",
+    "default": 0,
+	"min": 0,
+	"max": 7
+}	
+	}
+}
