@@ -5,15 +5,16 @@
 
 using namespace geode::prelude;
 
-// somehow lost all of my files from using first commit
-
 class $modify(MyNotepadLayer, EditorUI) {
+	
 	struct Fields{
 		CCMenuItemSpriteExtra* notepadbutton;
 	};
 	bool init(LevelEditorLayer* p0) {	
 		if (!EditorUI::init(p0)) 
-			return false;
+
+		return false;
+
 		if (Mod::get()->getSettingValue<int64_t>("string-setting-example") == 0){
 			CCSprite* spr = CCSprite::create("notepad_default.png"_spr);
 			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
@@ -45,11 +46,11 @@ class $modify(MyNotepadLayer, EditorUI) {
 		else if (Mod::get()->getSettingValue<int64_t>("string-setting-example") == 7){
 			CCSprite* spr = CCSprite::create("notepad_pink.png"_spr);
 			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-		}
-		
+		}	
 		auto undomenu = getChildByID("undo-menu");
 		undomenu->addChild(m_fields->notepadbutton);
 		undomenu->updateLayout();
+
 		return true;
 	}
 	void Onnotepadbutton(CCObject*) {
