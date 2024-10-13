@@ -6,7 +6,7 @@
 using namespace geode::prelude;
 
 class $modify(MyNotepadLayer, EditorUI) {
-	
+
 	struct Fields{
 		CCMenuItemSpriteExtra* notepadbutton;
 	};
@@ -15,8 +15,8 @@ class $modify(MyNotepadLayer, EditorUI) {
 
 		return false;
 
-		if (Mod::get()->getSettingValue<int64_t>("string-setting-example") == 0){
-			CCSprite* spr = CCSprite::create("notepad_default.png"_spr);
+		if ((Mod::get()->getSettingValue<int64_t>("string-setting-example") == 0)){
+			CCSprite* spr = CCSprite::create("notepad.png"_spr);
 			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
 		}
 		else if (Mod::get()->getSettingValue<int64_t>("string-setting-example") == 1){
