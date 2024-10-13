@@ -82,25 +82,27 @@ public:
 		if(!this->initWithColor({0,0,0,0}))
 		
 		return false;
+
 		geode::cocos::handleTouchPriority(this);
 		registerWithTouchDispatcher();
 		m_noElasticity = true;
  
 		auto menu = CCMenu::create();
 		auto layer = CCLayer::create();
-		layer->addChild(menu);
-		this->addChild(layer);
+
 		auto winSize = CCDirector::get()->getWinSize();
 		auto bg = CCScale9Sprite::create("GJ_square01.png");
 	    bg->setPosition(winSize / 2);
 		bg->setContentSize({243.0f, 280.0f});
 		layer->addChild(bg);
 		bg->setZOrder(-1);
+
 		auto spr = CCSprite::create("bg_new.png"_spr);
 	    spr->setPosition(winSize / 2);
 		spr->setScale(5.0f);
 		layer->addChild(spr);
 		spr->setZOrder(-2);
+
 		auto goldtext = CCLabelBMFont::create("To-Do List", "goldFont.fnt");
 		goldtext->setPosition(winSize / 2);
 		goldtext->setContentSize({129.0f, -212.0f});
@@ -115,6 +117,7 @@ public:
 		menu->addChild(closebutton);
 		closebutton->setID("my-button"_spr);
 		closebutton->setPosition({-119.0f, 133.0f});
+
 		text = TextInput::create(200, "", "chatFont.fnt");
 		layer->addChild(text);
 		text->setPosition(winSize / 2);
@@ -122,6 +125,7 @@ public:
 		text->setID("text-input");
 	 // text->setString(); // savetextstring
 		text->setZOrder(2);
+		
 		this->setKeypadEnabled(true);
 		this->setTouchEnabled(true);
 		menu->updateLayout();
