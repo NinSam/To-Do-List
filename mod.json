@@ -16,6 +16,9 @@
 		"editor",
 		"utility"
 	],
+	"links": {
+		"source": "https://github.com/NinSam/To-Do-List"
+	},
 	"resources": {
         "spritesheets":{
 
