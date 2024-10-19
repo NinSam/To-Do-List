@@ -44,50 +44,100 @@
 			"type": "string",
 			"default": ""
 		},
+		"1 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"2":{
 			"name": "2.",
 			"type": "string",
 			"default": ""
+		},
+		"2 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"3":{
 			"name": "3.",
 			"type": "string",
 			"default": ""
 		},
+		"3 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"4":{
 			"name": "4.",
 			"type": "string",
 			"default": ""
+		},
+		"4 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"5":{
 			"name": "5.",
 			"type": "string",
 			"default": ""
 		},
+		"5 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"6":{
 			"name": "6.",
 			"type": "string",
 			"default": ""
+		},
+		"6 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"7":{
 			"name": "7.",
 			"type": "string",
 			"default": ""
 		},
+		"7 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"8":{
 			"name": "8.",
 			"type": "string",
 			"default": ""
+		},
+		"8 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"9":{
 			"name": "9.",
 			"type": "string",
 			"default": ""
 		},
+		"9 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"10":{
 			"name": "10.",
 			"type": "string",
 			"default": ""
+		},
+		"10 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"titlelevel(clone)-custom":{
 			"name": "Tab 2",
@@ -103,50 +153,100 @@
 			"type": "string",
 			"default": ""
 		},
+		"11 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"12":{
 			"name": "2.",
 			"type": "string",
 			"default": ""
+		},
+		"12 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"13":{
 			"name": "3.",
 			"type": "string",
 			"default": ""
 		},
+		"13 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"14":{
 			"name": "4.",
 			"type": "string",
 			"default": ""
+		},
+		"14 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"15":{
 			"name": "5.",
 			"type": "string",
 			"default": ""
 		},
+		"15 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"16":{
 			"name": "6.",
 			"type": "string",
 			"default": ""
+		},
+		"16 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"17":{
 			"name": "7.",
 			"type": "string",
 			"default": ""
 		},
+		"17 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"18":{
 			"name": "8.",
 			"type": "string",
 			"default": ""
+		},
+		"18 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"19":{
 			"name": "9.",
 			"type": "string",
 			"default": ""
 		},
+		"19 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"20":{
 			"name": "10.",
 			"type": "string",
 			"default": ""
+		},
+		"20 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"titlelevel(clone1)-custom":
 		{
@@ -163,50 +263,100 @@
 			"type": "string",
 			"default": ""
 		},
+		"21 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"22":{
 			"name": "2.",
 			"type": "string",
 			"default": ""
+		},
+		"22 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"23":{
 			"name": "3.",
 			"type": "string",
 			"default": ""
 		},
+		"23 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"24":{
 			"name": "4.",
 			"type": "string",
 			"default": ""
+		},
+		"24 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"25":{
 			"name": "5.",
 			"type": "string",
 			"default": ""
 		},
+		"25 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"26":{
 			"name": "6.",
 			"type": "string",
 			"default": ""
+		},
+		"26 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"27":{
 			"name": "7.",
 			"type": "string",
 			"default": ""
 		},
+		"27 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"28":{
 			"name": "8.",
 			"type": "string",
 			"default": ""
+		},
+		"28 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"29":{
 			"name": "9.",
 			"type": "string",
 			"default": ""
 		},
+		"29 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"30":{
 			"name": "10.",
 			"type": "string",
 			"default": ""
+		},
+		"30 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"titlelevel(clone2)-custom":
 		{
@@ -223,50 +373,100 @@
 			"type": "string",
 			"default": ""
 		},
+		"31 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"32":{
 			"name": "2.",
 			"type": "string",
 			"default": ""
+		},
+		"32 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"33":{
 			"name": "3.",
 			"type": "string",
 			"default": ""
 		},
+		"33 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"34":{
 			"name": "4.",
 			"type": "string",
 			"default": ""
+		},
+		"34 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"35":{
 			"name": "5.",
 			"type": "string",
 			"default": ""
 		},
+		"35 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"36":{
 			"name": "6.",
 			"type": "string",
 			"default": ""
+		},
+		"36 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"37":{
 			"name": "7.",
 			"type": "string",
 			"default": ""
 		},
+		"37 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"38":{
 			"name": "8.",
 			"type": "string",
 			"default": ""
+		},
+		"38 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"39":{
 			"name": "9.",
 			"type": "string",
 			"default": ""
 		},
+		"39 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"40":{
 			"name": "10.",
 			"type": "string",
 			"default": ""
+		},
+		"40 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"titlelevel(clone3)-custom":
 		{
@@ -283,65 +483,115 @@
 			"type": "string",
 			"default": ""
 		},
+		"41 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"42":{
 			"name": "2.",
 			"type": "string",
 			"default": ""
+		},
+		"42 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"43":{
 			"name": "3.",
 			"type": "string",
 			"default": ""
 		},
+		"43 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"44":{
 			"name": "4.",
 			"type": "string",
 			"default": ""
+		},
+		"44 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"45":{
 			"name": "5.",
 			"type": "string",
 			"default": ""
 		},
+		"45 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"46":{
 			"name": "6.",
 			"type": "string",
 			"default": ""
+		},
+		"46 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"47":{
 			"name": "7.",
 			"type": "string",
 			"default": ""
 		},
+		"47 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"48":{
 			"name": "8.",
 			"type": "string",
 			"default": ""
+		},
+		"48 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"49":{
 			"name": "9.",
 			"type": "string",
 			"default": ""
 		},
+		"49 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
+		},
 		"50":{
 			"name": "10.",
 			"type": "string",
 			"default": ""
+		},
+		"50 checkbox":{
+			"name": "",
+			"type": "bool",
+			"default": false
 		},
 		"titlecolor-custom":{
 			"name": "Button Color",
 			"type": "title",
 			"description": "Changes the color of the button to one of eight colors."
 		},
-		
-		
 		"string-setting-example": {
-    "type": "int",
-    "name": "Button Color",
-	"description": "0 = Default (light blue), 1 = Red, 2 = Orange, 3 = Yellow, 4 = Green, 5 = Blue, 6 = Purple, 7 = Pink",
-    "default": 0,
-	"min": 0,
-	"max": 7
-}	
+            "type": "int",
+            "name": "Button Color",
+	        "description": "0 = Default (light blue), 1 = Red, 2 = Orange, 3 = Yellow, 4 = Green, 5 = Blue, 6 = Purple, 7 = Pink",
+            "default": 0,
+	        "min": 0,
+	        "max": 7
+        }
+	
 	}
+
 }
