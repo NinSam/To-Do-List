@@ -11,6 +11,13 @@
 	"version": "v1.0.0",
 	"developer": "NinSam",
 	"description": "Adds a To-Do List in the GD editor",
+	"dependencies":[
+		{
+			"id": "geode.node-ids",
+			"version": ">=v1.14.0",
+			"importance": "required"
+		}
+	],
 	"tags": [
 		"offline",
 		"editor",
