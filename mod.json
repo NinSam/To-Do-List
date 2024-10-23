@@ -56,6 +56,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"1 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"2":{
 			"name": "2.",
 			"type": "string",
@@ -65,6 +71,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"2 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"3":{
 			"name": "3.",
@@ -76,6 +88,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"3 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"4":{
 			"name": "4.",
 			"type": "string",
@@ -85,6 +103,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"4 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"5":{
 			"name": "5.",
@@ -96,6 +120,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"5 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"6":{
 			"name": "6.",
 			"type": "string",
@@ -105,6 +135,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"6 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"7":{
 			"name": "7.",
@@ -116,6 +152,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"7 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"8":{
 			"name": "8.",
 			"type": "string",
@@ -125,6 +167,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"8 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"9":{
 			"name": "9.",
@@ -136,6 +184,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"9 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"10":{
 			"name": "10.",
 			"type": "string",
@@ -145,6 +199,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"10 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"titlelevel(clone)-custom":{
 			"name": "Tab 2",
@@ -165,6 +225,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"11 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"12":{
 			"name": "2.",
 			"type": "string",
@@ -174,6 +240,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"12 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"13":{
 			"name": "3.",
@@ -185,6 +257,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"13 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"14":{
 			"name": "4.",
 			"type": "string",
@@ -194,6 +272,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"14 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"15":{
 			"name": "5.",
@@ -205,6 +289,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"15 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"16":{
 			"name": "6.",
 			"type": "string",
@@ -214,6 +304,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"16 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"17":{
 			"name": "7.",
@@ -225,6 +321,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"17 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"18":{
 			"name": "8.",
 			"type": "string",
@@ -234,6 +336,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"18 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"19":{
 			"name": "9.",
@@ -245,6 +353,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"19 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"20":{
 			"name": "10.",
 			"type": "string",
@@ -254,6 +368,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"20 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"titlelevel(clone1)-custom":
 		{
@@ -275,6 +395,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"21 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"22":{
 			"name": "2.",
 			"type": "string",
@@ -284,6 +410,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"22 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"23":{
 			"name": "3.",
@@ -295,6 +427,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"23 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"24":{
 			"name": "4.",
 			"type": "string",
@@ -304,6 +442,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"24 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"25":{
 			"name": "5.",
@@ -315,6 +459,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"25 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"26":{
 			"name": "6.",
 			"type": "string",
@@ -324,6 +474,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"26 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"27":{
 			"name": "7.",
@@ -335,6 +491,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"27 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"28":{
 			"name": "8.",
 			"type": "string",
@@ -344,6 +506,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"28 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"29":{
 			"name": "9.",
@@ -355,6 +523,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"29 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"30":{
 			"name": "10.",
 			"type": "string",
@@ -364,6 +538,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"30 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"titlelevel(clone2)-custom":
 		{
@@ -385,6 +565,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"31 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"32":{
 			"name": "2.",
 			"type": "string",
@@ -394,6 +580,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"32 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"33":{
 			"name": "3.",
@@ -405,6 +597,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"33 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"34":{
 			"name": "4.",
 			"type": "string",
@@ -414,6 +612,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"34 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"35":{
 			"name": "5.",
@@ -425,6 +629,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"35 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"36":{
 			"name": "6.",
 			"type": "string",
@@ -434,6 +644,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"36 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"37":{
 			"name": "7.",
@@ -445,6 +661,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"37 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"38":{
 			"name": "8.",
 			"type": "string",
@@ -454,6 +676,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"38 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"39":{
 			"name": "9.",
@@ -465,6 +693,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"39 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"40":{
 			"name": "10.",
 			"type": "string",
@@ -474,6 +708,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"40 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"titlelevel(clone3)-custom":
 		{
@@ -495,6 +735,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"41 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"42":{
 			"name": "2.",
 			"type": "string",
@@ -504,6 +750,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"42 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"43":{
 			"name": "3.",
@@ -515,6 +767,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"43 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"44":{
 			"name": "4.",
 			"type": "string",
@@ -524,6 +782,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"44 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"45":{
 			"name": "5.",
@@ -535,6 +799,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"45 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"46":{
 			"name": "6.",
 			"type": "string",
@@ -544,6 +814,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"46 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"47":{
 			"name": "7.",
@@ -555,6 +831,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"47 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"48":{
 			"name": "8.",
 			"type": "string",
@@ -564,6 +846,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"48 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"49":{
 			"name": "9.",
@@ -575,6 +863,12 @@
 			"type": "bool",
 			"default": false
 		},
+		"49 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
+		},
 		"50":{
 			"name": "10.",
 			"type": "string",
@@ -584,6 +878,12 @@
 			"name": "",
 			"type": "bool",
 			"default": false
+		},
+		"50 priority":{
+			"name": "",
+			"type": "string",
+			"default": "Low Priority",
+			"one-of": ["Low Priority", "Medium Priority", "High Priority"]
 		},
 		"titlecolor-custom":{
 			"name": "Button Color",
