@@ -1,20 +1,20 @@
 {
-	"geode": "3.8.1",
+	"geode": "4.0.0-alpha.1",
 	"gd": {
-		"win": "2.206",
-		"android": "2.206",
-		"mac": "2.206",
-		"ios": "2.206"
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
 	},
 	"id": "ninsam.to-do_list",
 	"name": "To-Do List",
-	"version": "v1.0.2",
+	"version": "v1.0.3-beta.1",
 	"developer": "NinSam",
 	"description": "Adds a To-Do List in the GD editor",
 	"dependencies":[
 		{
 			"id": "geode.node-ids",
-			"version": ">=v1.14.0",
+			"version": ">=v1.16.0",
 			"importance": "required"
 		}
 	],
