@@ -1,6 +1,6 @@
-# 1.0.3-beta.1
+# 1.0.3
 
-- Ported to GD 2.207
+- Ported to GD 2.2074 & Geode 4.0.0-alpha.1
 
 # 1.0.2
 
