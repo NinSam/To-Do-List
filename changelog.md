@@ -1,4 +1,4 @@
-# v1.0.3-beta.1
+# 1.0.3-beta.1
 
 - Ported to GD 2.207
 
