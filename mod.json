@@ -1,5 +1,5 @@
 {
-	"geode": "4.0.0-alpha.1",
+	"geode": "4.0.0-beta.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -8,7 +8,7 @@
 	},
 	"id": "ninsam.to-do_list",
 	"name": "To-Do List",
-	"version": "v1.0.3",
+	"version": "v1.0.4",
 	"developer": "NinSam",
 	"description": "Adds a To-Do List in the GD editor",
 	"dependencies":[
