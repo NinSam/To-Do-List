@@ -8,4 +8,4 @@ Now you don't need to place text objects to make a To-Do List!
 
 You can also customize the color of the button at the bottom of the settings. (Requires exiting and reopening the editor for the button color to change)
 
-![image](resources/example.png)
+![image](resources/screenshot.png)
