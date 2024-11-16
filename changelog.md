@@ -3,7 +3,6 @@
 ## v1.0.4
 
 - Ported to Geode 4.0.0-beta.1
-- Removed Android Support temporarily due to some problems
 
 ## v1.0.3
 
