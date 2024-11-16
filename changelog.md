@@ -3,6 +3,7 @@
 ## v1.0.4
 
 - Ported to Geode 4.0.0-beta.1
+- Added Mac Support?
 
 ## v1.0.3
 
