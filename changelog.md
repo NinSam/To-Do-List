@@ -1,9 +1,14 @@
 # Changelog
 
+## v1.1.0
+
+- To-Do List has been revamped!
+- Button Color setting has been reworked
+
 ## v1.0.4
 
 - Ported to Geode 4.0.0-beta.1
-- Added Mac Support?
+- Added Mac Support
 
 ## v1.0.3
 
