@@ -27,7 +27,7 @@
 		"source": "https://github.com/NinSam/To-Do-List"
 	},
 	"resources": {
-		"sprites":["resources/NotepadSheet/*.png"]
+		"sprites":["resources/*.png"]
     },
 	"settings":{
 
