@@ -1,31 +1,17 @@
 #include <Geode/Geode.hpp>
-#include <Geode/modify/EditorUI.hpp>
-#include <Geode/modify/LevelEditorLayer.hpp>
 #include <Geode/ui/GeodeUI.hpp>
+#include "TabManager.hpp"
 
 using namespace geode::prelude;
 
-class NotepadLayer : public FLAlertLayer{
-public:
-	static NotepadLayer* create(){
-		auto ret = new NotepadLayer;
-		if (ret && ret->init()){
+	bool Tab5::init(){
 
-			ret->autorelease();
-			return ret;
-		}
-		delete ret;
-		return nullptr;
-	}
-	bool init(){
-		if(!FLAlertLayer::init(150))
-		
+		if (!FLAlertLayer::init(150))
+
 		return false;
 
-		// this code is going to be a mess...
-
 		geode::cocos::handleTouchPriority(this);
-		registerWithTouchDispatcher();
+		this->registerWithTouchDispatcher();
 		m_noElasticity = true;
 
 		float relativescale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
@@ -33,31 +19,32 @@ public:
 
 		// Menus
 
+
 		auto menu = CCMenu::create();
 		auto layout = CCMenu::create();
 		auto smallbutton = CCMenu::create();
-		auto pageslayout = CCMenu::create();
+		auto tabs = CCMenu::create();
 
-		this->addChild(pageslayout);
-		pageslayout->setPosition({54,21 * relativescale});
-        pageslayout->setScale(0.8f * relativescale);
-	    pageslayout->setZOrder(2);
-		pageslayout->setID("pages"_spr);
+		this->addChild(tabs);
+		tabs->setPosition({54,21 * relativescale});
+        tabs->setScale(0.8f * relativescale);
+	    tabs->setZOrder(2);
+		tabs->setID("tabs"_spr);
 		
 		this->addChild(smallbutton);
 		smallbutton->setPosition({75,0 * relativescale});
 		smallbutton->setScale(0.675f * relativescale);
 		smallbutton->setID("small-buttons"_spr);
 		smallbutton->setZOrder(2);
+	
+		this->addChild(menu);
+		menu->setPosition({0,0 * relativescale});
 
 		this->addChild(layout);
 		layout->setPosition({0,35 * relativescale});
 		layout->setScale(0.5f * relativescale);
 		layout->setID("layout"_spr);
 		layout->setZOrder(3);
-
-		this->addChild(menu);
-		menu->setPosition({0,0 * relativescale});
 
 		// bg
 
@@ -67,8 +54,7 @@ public:
 		menu->addChild(bg);
 		bg->setZOrder(-1);
 
-		// Labels
-
+        // Labels
 
 		CCLabelBMFont* goldtext = CCLabelBMFont::create("To-Do List", "goldFont.fnt");
 		goldtext->setPosition({289.5f, 278 * relativescale});
@@ -141,7 +127,7 @@ public:
 		CCMenuItemSpriteExtra* closebutton = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("GJ_closeBtn_001.png"),
 			this,
-			menu_selector(NotepadLayer::CloseNotepad)
+			menu_selector(Tab5::CloseTab)
 		);
 		menu->addChild(closebutton);
 		closebutton->setID("close-button"_spr);
@@ -151,7 +137,7 @@ public:
 		CCMenuItemSpriteExtra* opensettings = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png"),
 			this,
-			menu_selector(NotepadLayer::OpenSettings)
+			menu_selector(Tab5::OpenSettings)
 		);
 		smallbutton->addChild(opensettings);
 		opensettings->setID("open-settings"_spr);
@@ -161,7 +147,7 @@ public:
 		CCMenuItemSpriteExtra* info = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("GJ_infoIcon_001.png"),
 			this,
-			menu_selector(NotepadLayer::Info)
+			menu_selector(Tab5::Info)
 		);
 		smallbutton->addChild(info);
 		info->setID("info"_spr);
@@ -171,115 +157,115 @@ public:
 
 		// Level Name (Tabs)
 
-		TextInput* inputname_1 = TextInput::create(100,"","bigFont.fnt");
+		TextInput* inputname_1 = TextInput::create(100,"5/5","bigFont.fnt");
 		inputname_1->setPosition({217.5f, 243 * relativescale});
-		inputname_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-1", "")));
+		inputname_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-1-tab-5", "")));
 		inputname_1->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-name-1", str));
+        (Mod::get()->setSavedValue<std::string>("input-name-1-tab-5", str));
 		
 		});
-		pageslayout->addChild(inputname_1);
+		tabs->addChild(inputname_1);
 
 
 		// TextInputs
 
 		TextInput* input_1 = TextInput::create(200,"","bigFont.fnt");
 		input_1->setPosition({231,205 * relativescale});
-		input_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-1", "")));
+		input_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-1-tab-5", "")));
 		input_1->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-1", str)); // finally figured it out after "insert" attempts I have on Spectre
+        (Mod::get()->setSavedValue<std::string>("input-1-tab-5", str));
 		
 		});
 		layout->addChild(input_1);
 
 		TextInput* input_2 = TextInput::create(200,"","bigFont.fnt");
 		input_2->setPosition({231,164.5f * relativescale});
-		input_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-2", "")));
+		input_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-2-tab-5", "")));
 		input_2->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-2", str));
+        (Mod::get()->setSavedValue<std::string>("input-2-tab-5", str));
 		
 		});
 		layout->addChild(input_2);
 
 		TextInput* input_3 = TextInput::create(200,"","bigFont.fnt");
 		input_3->setPosition({231,124 * relativescale});
-		input_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-3", "")));
+		input_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-3-tab-5", "")));
 		input_3->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-3", str));
+        (Mod::get()->setSavedValue<std::string>("input-3-tab-5", str));
 		
 		});
 		layout->addChild(input_3);
 
 		TextInput* input_4 = TextInput::create(200,"","bigFont.fnt");
 		input_4->setPosition({231,84.5f * relativescale});
-		input_4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-4", "")));
+		input_4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-4-tab-5", "")));
 		input_4->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-4", str));
+        (Mod::get()->setSavedValue<std::string>("input-4-tab-5", str));
 		
 		});
 		layout->addChild(input_4);
 
 		TextInput* input_5 = TextInput::create(200,"","bigFont.fnt");
 		input_5->setPosition({231,45 * relativescale});
-		input_5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-5", "")));
+		input_5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-5-tab-5", "")));
 		input_5->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-5", str));
+        (Mod::get()->setSavedValue<std::string>("input-5-tab-5", str));
 		
 		});
 		layout->addChild(input_5);
 
 		TextInput* input_6 = TextInput::create(200,"","bigFont.fnt");
 		input_6->setPosition({231,7 * relativescale});
-		input_6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-6", "")));
+		input_6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-6-tab-5", "")));
 		input_6->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-6", str));
+        (Mod::get()->setSavedValue<std::string>("input-6-tab-5", str));
 		
 		});
 		layout->addChild(input_6);
 
 		TextInput* input_7 = TextInput::create(200,"","bigFont.fnt");
 		input_7->setPosition({231,-33 * relativescale});
-		input_7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-7", "")));
+		input_7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-7-tab-5", "")));
 		input_7->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-7", str));
+        (Mod::get()->setSavedValue<std::string>("input-7-tab-5", str));
 		
 		});
 		layout->addChild(input_7);
 
 		TextInput* input_8 = TextInput::create(200,"","bigFont.fnt");
 		input_8->setPosition({231,-73 * relativescale});
-		input_8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-8", "")));
+		input_8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-8-tab-5", "")));
 		input_8->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-8", str));
+        (Mod::get()->setSavedValue<std::string>("input-8-tab-5", str));
 		
 		});
 		layout->addChild(input_8);
 
 		TextInput* input_9 = TextInput::create(200,"","bigFont.fnt");
 		input_9->setPosition({231,-113 * relativescale});
-		input_9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-9", "")));
+		input_9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-9-tab-5", "")));
 		input_9->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-9", str));
+        (Mod::get()->setSavedValue<std::string>("input-9-tab-5", str));
 		
 		});
 		layout->addChild(input_9);
 
 		TextInput* input_10 = TextInput::create(200,"","bigFont.fnt");
 		input_10->setPosition({231,-153 * relativescale});
-		input_10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-10", "")));
+		input_10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-10-tab-5", "")));
 		input_10->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-10", str));
+        (Mod::get()->setSavedValue<std::string>("input-10-tab-5", str));
 		
 		});
 		layout->addChild(input_10);
@@ -289,197 +275,196 @@ public:
 
         TextInput* input_priority_1 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_1->setPosition({435,205 * relativescale});
-		input_priority_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-one", "")));
+		input_priority_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-one-tab-5", "")));
 		input_priority_1->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-one", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-one-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_1);
 
         TextInput* input_priority_2 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_2->setPosition({435,164.5f * relativescale});
-		input_priority_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-two", "")));
+		input_priority_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-two-tab-5", "")));
 		input_priority_2->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-two", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-two-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_2);
 
         TextInput* input_priority_3 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_3->setPosition({435,124 * relativescale});
-		input_priority_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-three", "")));
+		input_priority_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-three-tab-5", "")));
 		input_priority_3->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-three", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-three-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_3);
 
         TextInput* input_priority_4 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_4->setPosition({435,84.5f * relativescale});
-		input_priority_4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-four", "")));
+		input_priority_4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-four-tab-5", "")));
 		input_priority_4->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-four", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-four-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_4);
 
         TextInput* input_priority_5 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_5->setPosition({435,45 * relativescale});
-		input_priority_5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-five", "")));
+		input_priority_5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-five-tab-5", "")));
 		input_priority_5->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-five", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-five-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_5);
 
 		TextInput* input_priority_6 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_6->setPosition({435,7 * relativescale});
-		input_priority_6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-six", "")));
+		input_priority_6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-six-tab-5", "")));
 		input_priority_6->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-six", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-sixv", str));
 		
 		});
 		layout->addChild(input_priority_6);
 
         TextInput* input_priority_7 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_7->setPosition({435,-33 * relativescale});
-		input_priority_7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-seven", "")));
+		input_priority_7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-seven-tab-5", "")));
 		input_priority_7->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-seven", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-seven-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_7);
 
         TextInput* input_priority_8 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_8->setPosition({435,-73 * relativescale});
-		input_priority_8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-eight", "")));
+		input_priority_8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-eight-tab-5", "")));
 		input_priority_8->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-eight", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-eight-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_8);
 
         TextInput* input_priority_9 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_9->setPosition({435,-113 * relativescale});
-		input_priority_9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-nine", "")));
+		input_priority_9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-nine-tab-5", "")));
 		input_priority_9->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-nine", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-nine-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_9);
 
         TextInput* input_priority_10 = TextInput::create(50,"","bigFont.fnt");
 		input_priority_10->setPosition({435,-153 * relativescale});
-		input_priority_10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-ten", "")));
+		input_priority_10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-ten-tab-5", "")));
 		input_priority_10->setCallback([this](std::string const& str){
 
-        (Mod::get()->setSavedValue<std::string>("input-priority-ten", str));
+        (Mod::get()->setSavedValue<std::string>("input-priority-ten-tab-5", str));
 		
 		});
 		layout->addChild(input_priority_10);
 
-
-
+		
 
 		// Checkboxes
 
-		CCMenuItemToggler* toggle = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox),1);
+		CCMenuItemToggler* toggle = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox),1);
 		layout->addChild(toggle);
 		toggle->setZOrder(1);
 		toggle->setPosition({371, 205 * relativescale});
-		toggle->toggle(Mod::get()->getSavedValue<bool>("checkbox", false));
+		toggle->toggle(Mod::get()->getSavedValue<bool>("checkbox-tab-5", false));
 
-		CCMenuItemToggler* toggle_2 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox2),1);
+		CCMenuItemToggler* toggle_2 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox2),1);
 		toggle_2->toggle(false);
 		layout->addChild(toggle_2);
 		toggle_2->setZOrder(1);
 		toggle_2->setPosition({371, 164.5f * relativescale});
-		toggle_2->toggle(Mod::get()->getSavedValue<bool>("checkbox-2", false));
+		toggle_2->toggle(Mod::get()->getSavedValue<bool>("checkbox-2-tab-5", false));
 
-		CCMenuItemToggler* toggle_3 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox3),1);
+		CCMenuItemToggler* toggle_3 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox3),1);
 		toggle_3->toggle(false);
 		layout->addChild(toggle_3);
 		toggle_3->setZOrder(1);
 		toggle_3->setPosition({371, 124 * relativescale});
-		toggle_3->toggle(Mod::get()->getSavedValue<bool>("checkbox-3", false));
+		toggle_3->toggle(Mod::get()->getSavedValue<bool>("checkbox-3-tab-5", false));
 
-		CCMenuItemToggler* toggle_4 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox4),1);
+		CCMenuItemToggler* toggle_4 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox4),1);
 		toggle_4->toggle(false);
 		layout->addChild(toggle_4);
 		toggle_4->setZOrder(1);
 		toggle_4->setPosition({371, 84.5f * relativescale});
-		toggle_4->toggle(Mod::get()->getSavedValue<bool>("checkbox-4", false));
+		toggle_4->toggle(Mod::get()->getSavedValue<bool>("checkbox-4-tab-5", false));
 
-		CCMenuItemToggler* toggle_5 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox5),1);
+		CCMenuItemToggler* toggle_5 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox5),1);
 		toggle_5->toggle(false);
 		layout->addChild(toggle_5);
 		toggle_5->setZOrder(1);
 		toggle_5->setPosition({371, 45 * relativescale});
-		toggle_5->toggle(Mod::get()->getSavedValue<bool>("checkbox-5", false));
+		toggle_5->toggle(Mod::get()->getSavedValue<bool>("checkbox-5-tab-5", false));
 
-		CCMenuItemToggler* toggle_6 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox6),1);
+		CCMenuItemToggler* toggle_6 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox6),1);
 		layout->addChild(toggle_6);
 		toggle_6->setZOrder(1);
 		toggle_6->setPosition({371, 7 * relativescale});
-		toggle_6->toggle(Mod::get()->getSavedValue<bool>("checkbox-6", false));
+		toggle_6->toggle(Mod::get()->getSavedValue<bool>("checkbox-6-tab-5", false));
 
-		CCMenuItemToggler* toggle_7 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox7),1);
+		CCMenuItemToggler* toggle_7 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox7),1);
 		toggle_7->toggle(false);
 		layout->addChild(toggle_7);
 		toggle_7->setZOrder(1);
 		toggle_7->setPosition({371, -33 * relativescale});
-		toggle_7->toggle(Mod::get()->getSavedValue<bool>("checkbox-7", false));
+		toggle_7->toggle(Mod::get()->getSavedValue<bool>("checkbox-7-tab-5", false));
 
-		CCMenuItemToggler* toggle_8 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox8),1);
+		CCMenuItemToggler* toggle_8 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox8),1);
 		toggle_8->toggle(false);
 		layout->addChild(toggle_8);
 		toggle_8->setZOrder(1);
 		toggle_8->setPosition({371, -73 * relativescale});
-		toggle_8->toggle(Mod::get()->getSavedValue<bool>("checkbox-8", false));
+		toggle_8->toggle(Mod::get()->getSavedValue<bool>("checkbox-8-tab-5", false));
 
-		CCMenuItemToggler* toggle_9 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox9),1);
+		CCMenuItemToggler* toggle_9 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox9),1);
 		toggle_9->toggle(false);
 		layout->addChild(toggle_9);
 		toggle_9->setZOrder(1);
 		toggle_9->setPosition({371, -113 * relativescale});
-		toggle_9->toggle(Mod::get()->getSavedValue<bool>("checkbox-9", false));
+		toggle_9->toggle(Mod::get()->getSavedValue<bool>("checkbox-9-tab-5", false));
 
-		CCMenuItemToggler* toggle_10 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::SaveCheckbox10),1);
+		CCMenuItemToggler* toggle_10 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab5::SaveCheckbox10),1);
 		toggle_10->toggle(false);
 		layout->addChild(toggle_10);
 		toggle_10->setZOrder(1);
 		toggle_10->setPosition({371, -153 * relativescale});
-		toggle_10->toggle(Mod::get()->getSavedValue<bool>("checkbox-10", false));
-
+		toggle_10->toggle(Mod::get()->getSavedValue<bool>("checkbox-10-tab-5", false));
 
 		// Arrows
 
 		CCMenuItemSpriteExtra* page_left = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("edit_leftBtn_001.png"),
 			this,
-			menu_selector(NotepadLayer::PlaceHolder)
+			menu_selector(Tab5::PreviousTab)
 		);
-		pageslayout->addChild(page_left);
+		tabs->addChild(page_left);
 		page_left->setZOrder(1);
 		page_left->setPosition({151, 242 * relativescale});
 
 		CCMenuItemSpriteExtra* page_right = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("edit_rightBtn_001.png"),
 			this,
-			menu_selector(NotepadLayer::PlaceHolder)
+			menu_selector(Tab5::NextTab)
 		);
-		pageslayout->addChild(page_right);
+		tabs->addChild(page_right);
 		page_right->setZOrder(1);
 		page_right->setPosition({284, 242 * relativescale});
+
 
 		// this
 		
@@ -488,134 +473,69 @@ public:
 		this->updateLayout();
 		
 		return true;
+
 	}
-	void CloseNotepad(CCObject*){
+	void Tab5::CloseTab(CCObject*){
 		this->setTouchEnabled(false);
 		this->removeFromParentAndCleanup(true);
  	}
-	void OpenSettings(CCObject*){
+	void Tab5::PreviousTab(CCObject*){
+		
+		this->setTouchEnabled(false);
+		this->removeFromParentAndCleanup(true);
+		Tab4::create()->show();
+	}
+    void Tab5::NextTab(CCObject*){
+		
+		this->setTouchEnabled(false);
+		this->removeFromParentAndCleanup(true);
+		Tab1::create()->show();
+	}
+	void Tab5::OpenSettings(CCObject*){
 		geode::openSettingsPopup(Mod::get());
 	}
-	void Info(CCObject*){
+	void Tab5::Info(CCObject*){
 		FLAlertLayer::create("Info", "1. Level Name (Tabs). 2. Text Input. 3. Checkbox. 4. Priority (Low, Medium, High)", "OK")->show();
 	}
-	void PlaceHolder(CCObject*){
 
+	void Tab5::SaveCheckbox(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-tab-5", false));;
+	}
+	void Tab5::SaveCheckbox2(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-2-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-2-tab-5", false));
+	}
+	void Tab5::SaveCheckbox3(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-3-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-3-tab-5", false));
+	}
+	void Tab5::SaveCheckbox4(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-4-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-4-tab-5", false));
+	}
+	void Tab5::SaveCheckbox5(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-5-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-5-tab-5", false));
+	}
+	void Tab5::SaveCheckbox6(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-6-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-6-tab-5", false));
+	}
+	void Tab5::SaveCheckbox7(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-7-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-7-tab-5", false));
+	}
+	void Tab5::SaveCheckbox8(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-8-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-8-tab-5", false));
+	}
+	void Tab5::SaveCheckbox9(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-9-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-9-tab-5", false));
+	}
+	void Tab5::SaveCheckbox10(CCObject* sender){
+		Mod::get()->setSavedValue<bool>("checkbox-10-tab-5", !Mod::get()->getSavedValue<bool>("checkbox-10-tab-5", false));
 	}
 
-	// not sure if was doing this because it just turns all of them on/off if one of them is enabled/disabled
+	Tab5* Tab5::create(){
+		auto ret = new Tab5;
+		if (ret && ret->init()){
 
-	void SaveCheckbox(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox", !Mod::get()->getSavedValue<bool>("checkbox", false));;
-	}
-	void SaveCheckbox2(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-2", !Mod::get()->getSavedValue<bool>("checkbox-2", false));
-	}
-	void SaveCheckbox3(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-3", !Mod::get()->getSavedValue<bool>("checkbox-3", false));
-	}
-	void SaveCheckbox4(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-4", !Mod::get()->getSavedValue<bool>("checkbox-4", false));
-	}
-	void SaveCheckbox5(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-5", !Mod::get()->getSavedValue<bool>("checkbox-5", false));
-	}
-	void SaveCheckbox6(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-6", !Mod::get()->getSavedValue<bool>("checkbox-6", false));
-	}
-	void SaveCheckbox7(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-7", !Mod::get()->getSavedValue<bool>("checkbox-7", false));
-	}
-	void SaveCheckbox8(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-8", !Mod::get()->getSavedValue<bool>("checkbox-8", false));
-	}
-	void SaveCheckbox9(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-9", !Mod::get()->getSavedValue<bool>("checkbox-9", false));
-	}
-	void SaveCheckbox10(CCObject* sender){
-		Mod::get()->setSavedValue<bool>("checkbox-10", !Mod::get()->getSavedValue<bool>("checkbox-10", false));
-	}
-};
-
-class $modify(MyNotepadLayer, EditorUI) {
-
-	struct Fields{
-		CCMenuItemSpriteExtra* notepadbutton;
-	};
-	bool init(LevelEditorLayer* p0) {	
-		if (!EditorUI::init(p0)) 
-
-		return false;
-
-		auto buttoncolor = Mod::get()->getSettingValue<std::string>("button-color");
-
-		if (buttoncolor == "Default"){
-
-			CCSprite* spr = CCSprite::create("notepad.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			ret->autorelease();
+			return ret;
 		}
-		else if (buttoncolor == "Red"){
-			CCSprite* spr = CCSprite::create("notepad_red.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
-		}
-		else if (buttoncolor == "Orange"){
-
-			CCSprite* spr = CCSprite::create("notepad_orange.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
-		}
-		else if (buttoncolor == "Yellow"){
-
-			CCSprite* spr = CCSprite::create("notepad_yellow.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
-		}
-		else if (buttoncolor == "Green"){
-
-			CCSprite* spr = CCSprite::create("notepad_green.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
-		}
-		else if (buttoncolor == "Blue"){
-
-			CCSprite* spr = CCSprite::create("notepad_blue.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
-		}
-		else if (buttoncolor == "Purple"){
-
-			CCSprite* spr = CCSprite::create("notepad_purple.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
-		}
-		else if (buttoncolor == "Pink"){
-
-			CCSprite* spr = CCSprite::create("notepad_pink.png"_spr);
-			spr->setID("To-Do List"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
-		}
-		auto undomenu = getChildByID("undo-menu");
-		undomenu->addChild(m_fields->notepadbutton);
-		undomenu->updateLayout();
-
-		return true;
+		delete ret;
+		return nullptr;
 	}
-	void Onnotepadbutton(CCObject*) {
-		NotepadLayer::create()->show();
-	}
-	void showUI(bool show){
-		EditorUI::showUI(show);
-		m_fields->notepadbutton->setVisible(show);
-		
-	}
-};

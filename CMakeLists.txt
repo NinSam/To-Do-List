@@ -7,7 +7,13 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 project(To-DoList VERSION 1.0.0)
 
 add_library(${PROJECT_NAME} SHARED
-    src/main.cpp
+    src/EditorUI.cpp
+    src/Tab1.cpp
+    src/Tab2.cpp
+    src/Tab3.cpp
+    src/Tab4.cpp
+    src/Tab5.cpp
+    src/TabManager.hpp
     # Add any extra C++ source files here 
 )
 
