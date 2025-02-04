@@ -8,12 +8,13 @@ project(To-DoList VERSION 1.0.0)
 
 add_library(${PROJECT_NAME} SHARED
     src/EditorUI.cpp
+    src/LayerSetup.cpp
     src/Tab1.cpp
     src/Tab2.cpp
     src/Tab3.cpp
     src/Tab4.cpp
     src/Tab5.cpp
-    src/TabManager.hpp
+    src/NotepadManager.hpp
     # Add any extra C++ source files here 
 )
 

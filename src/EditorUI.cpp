@@ -1,7 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/EditorUI.hpp>
 #include <Geode/modify/LevelEditorLayer.hpp>
-#include "TabManager.hpp"
+#include "NotepadManager.hpp"
 
 using namespace geode::prelude;
 

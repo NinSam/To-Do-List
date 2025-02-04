@@ -2,6 +2,22 @@
 
 using namespace geode::prelude;
 
+// I wasted over 3 hours trying to make these tabs into CCMenu's but the page switch system was so buggy that I just reverted it back...
+
+class LayerSetup: public CCMenu{
+protected:
+
+bool init();
+
+void CloseTab(CCObject*);
+void OpenSettings(CCObject*);
+void Info(CCObject*);
+
+
+public:
+   static LayerSetup* create();
+};
+
 class Tab1: public FLAlertLayer{
 protected:
 
