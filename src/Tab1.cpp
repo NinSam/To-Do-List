@@ -4,13 +4,12 @@ using namespace geode::prelude;
 
 	bool Tab1::init(){
 
-		if (!FLAlertLayer::init(150))
+		if (!CCMenu::init())
 
 		return false;
 
 		geode::cocos::handleTouchPriority(this);
 		this->registerWithTouchDispatcher();
-		m_noElasticity = true;
 
 
 		float relativescale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
@@ -18,11 +17,6 @@ using namespace geode::prelude;
 
 
 		// Menus
-
-		auto layersetup = LayerSetup::create();
-		this->addChild(layersetup);
-		layersetup->setPosition({0,0 * relativescale});
-		layersetup->setID("setup");
 
 
 		auto menu = CCMenu::create();
@@ -43,18 +37,6 @@ using namespace geode::prelude;
 		layout->setScale(0.5f * relativescale);
 		layout->setID("layout");
 		layout->setZOrder(3);
-	
-
-		// Buttons
-		
-		CCMenuItemSpriteExtra* closebutton = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("GJ_closeBtn_001.png"),
-			this,
-			menu_selector(Tab1::CloseTab)
-		);
-		menu->addChild(closebutton);
-		closebutton->setID("close-button");
-		closebutton->setPosition({180, 295 * relativescale});
 
 
 		// Level Name (Tabs)
@@ -338,24 +320,6 @@ using namespace geode::prelude;
 		toggle_10->toggle(Mod::get()->getSavedValue<bool>("checkbox-10-tab-1", false));
 	
 
-		// Arrows
-
-		CCMenuItemSpriteExtra* page_left = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("edit_leftBtn_001.png"),
-			this,
-			menu_selector(Tab1::PreviousTab)
-		);
-		tabs->addChild(page_left);
-		page_left->setPosition({151, 242 * relativescale});
-
-		CCMenuItemSpriteExtra* page_right = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("edit_rightBtn_001.png"),
-			this,
-			menu_selector(Tab1::NextTab)
-		);
-		tabs->addChild(page_right);
-		page_right->setPosition({284, 242 * relativescale});
-
 
 		// this
 		
@@ -366,21 +330,7 @@ using namespace geode::prelude;
 		return true;
 
 	}
-	void Tab1::CloseTab(CCObject*){
-		this->setTouchEnabled(false);
-		this->removeFromParentAndCleanup(true);
- 	}
-	void Tab1::PreviousTab(CCObject*){
-		this->setTouchEnabled(false);
-		this->removeFromParentAndCleanup(true);
-		Tab5::create()->show();
-	}
-	void Tab1::NextTab(CCObject*){
-		this->setTouchEnabled(false);
-		this->removeFromParentAndCleanup(true);
-		Tab2::create()->show();
-	}
-		
+
 	// not sure if was doing this right because it just turns all of them on/off if one of them is enabled/disabled
 
 	void Tab1::SaveCheckbox(CCObject* sender){

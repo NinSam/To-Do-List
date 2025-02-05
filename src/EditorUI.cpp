@@ -72,7 +72,7 @@ class $modify(MyNotepadLayer, EditorUI) {
 		return true;
 	}
 	void Onnotepadbutton(CCObject*) {
-		Tab1::create()->show();
+		NotepadLayer::create()->show();
 	}
 	void showUI(bool show){
 		EditorUI::showUI(show);
