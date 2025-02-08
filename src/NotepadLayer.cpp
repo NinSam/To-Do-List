@@ -1,4 +1,3 @@
-#include <Geode/ui/GeodeUI.hpp>
 #include "NotepadManager.hpp"
 
 using namespace geode::prelude;
@@ -13,132 +12,68 @@ using namespace geode::prelude;
 		this->registerWithTouchDispatcher();
 
 		float relativescale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
-		auto screenSize = CCDirector::get()->getWinSize();
-		
-		// ->setPosition(CCPoint{screenSize.width / 2 - 200, screenSize.height -10});
+		auto screenSize = CCDirector::sharedDirector()->getWinSize();
+	
 
 		// Menus
 
 		auto menu = CCMenu::create();
-		auto layout = CCMenu::create();
+
 		auto smallbutton = CCMenu::create();
 		auto arrows = CCMenu::create();
 
 		this->addChild(smallbutton);
-		smallbutton->setPosition({75,0});
 		smallbutton->setScale(0.675f * relativescale);
 		smallbutton->setID("small-buttons");
+		smallbutton->setPosition(ccp(0,0));
 		smallbutton->setZOrder(2);
 	
 		this->addChild(menu);
-		menu->setPosition({0,0});
+		menu->setPosition(ccp(0,0));
 		menu->setZOrder(1);
 
 		this->addChild(arrows);
-		arrows->setPosition({0,0});
+		arrows->setPosition(ccp(0,0));
 		arrows->setID("arrows");
 		arrows->setZOrder(1);
-		arrows->setScale(0.8f * relativescale);
+		arrows->setScale(1 * relativescale);
 
-		this->addChild(layout);
-		layout->setPosition({0,35});
-		layout->setScale(0.5f * relativescale);
-		layout->setID("number-layout");
-		layout->setZOrder(3);
 
 		// bg
 
-		CCScale9Sprite* bg = CCScale9Sprite::create("GJ_square01.png");
-	    bg->setPosition({284.5f,160.0f});
-		bg->setContentSize({213, 280});
+		auto bg = CCScale9Sprite::create("GJ_square01.png");
+	    bg->setPosition(screenSize/2);
+		bg->setContentSize({466, 280});
 		this->addChild(bg);
 
+		// outline
 
-        // Labels
+		auto outline = CCScale9Sprite::createWithSpriteFrameName("block008_topcolor_15_001.png");
+		outline->setPosition(screenSize/2 + CCPoint{0,80});
+		outline->setContentSize({461, 2.5f});
+		this->addChild(outline);
+		outline->setColor(ccc3(0,0,0));
 
-		CCLabelBMFont* goldtext = CCLabelBMFont::create("To-Do List", "goldFont.fnt");
-		goldtext->setPosition({289.5f, 278});
-		menu->addChild(goldtext);
-		goldtext->setScale(0.8f * relativescale);
-
-		CCLabelBMFont* first = CCLabelBMFont::create("1.", "bigFont.fnt");
-		first->setPosition({109, 207});
-		first->setScale(0.7f * relativescale);
-		layout->addChild(first);
-
-		CCLabelBMFont* second = CCLabelBMFont::create("2.", "bigFont.fnt");
-		second->setPosition({109, 167});
-		second->setScale(0.7f * relativescale);
-		layout->addChild(second);
-
-		CCLabelBMFont* third = CCLabelBMFont::create("3.", "bigFont.fnt");
-		third->setPosition({109, 127});
-		third->setScale(0.7f * relativescale);
-		layout->addChild(third);
-
-		CCLabelBMFont* fourth = CCLabelBMFont::create("4.", "bigFont.fnt");
-		fourth->setPosition({109, 87});
-		fourth->setScale(0.7f * relativescale);
-		layout->addChild(fourth);
-
-		CCLabelBMFont* fifth = CCLabelBMFont::create("5.", "bigFont.fnt");
-		fifth->setPosition({109, 47});
-		fifth->setScale(0.7f * relativescale);
-		layout->addChild(fifth);
-
-		CCLabelBMFont* sixth = CCLabelBMFont::create("6.", "bigFont.fnt");
-		sixth->setPosition({109, 7});
-		sixth->setScale(0.7f * relativescale);
-		layout->addChild(sixth);
-
-		CCLabelBMFont* seventh = CCLabelBMFont::create("7.", "bigFont.fnt");
-		seventh->setPosition({109, -33});
-		seventh->setScale(0.7f * relativescale);
-		layout->addChild(seventh);
-
-		CCLabelBMFont* eighth = CCLabelBMFont::create("8.", "bigFont.fnt");
-		eighth->setPosition({109, -73});
-		eighth->setScale(0.7f * relativescale);
-		layout->addChild(eighth);
-
-		CCLabelBMFont* ninth = CCLabelBMFont::create("9.", "bigFont.fnt");
-		ninth->setPosition({109, -113});
-		ninth->setScale(0.7f * relativescale);
-		layout->addChild(ninth);
-
-		CCLabelBMFont* tenth = CCLabelBMFont::create("10.", "bigFont.fnt");
-		tenth->setPosition({109, -153});
-		tenth->setScale(0.7f * relativescale);
-		layout->addChild(tenth);
 
 		// Buttons
 
-		CCMenuItemSpriteExtra* closebutton = CCMenuItemSpriteExtra::create(
+		auto closebutton = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("GJ_closeBtn_001.png"),
 			this,
 			menu_selector(NotepadLayer::Close)
 		);
 		menu->addChild(closebutton);
 		closebutton->setID("close-button");
-		closebutton->setPosition({180, 295});
+	    closebutton->setPosition(screenSize/2 + CCPoint{-231.5f, 135});
 
-		CCMenuItemSpriteExtra* opensettings = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png"),
+		auto openextras = CCMenuItemSpriteExtra::create(
+			CCSprite::createWithSpriteFrameName("GJ_menuBtn_001.png"),
 			this,
-			menu_selector(NotepadLayer::OpenSettings)
+			menu_selector(NotepadLayer::OpenExtras)
 		);
-		smallbutton->addChild(opensettings);
-		opensettings->setID("open-settings");
-		opensettings->setPosition({297, 333});
-
-		CCMenuItemSpriteExtra* info = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("GJ_infoIcon_001.png"),
-			this,
-			menu_selector(NotepadLayer::Info)
-		);
-		smallbutton->addChild(info);
-		info->setID("info");
-		info->setPosition({73, 332});
+		smallbutton->addChild(openextras);
+		openextras->setID("open-extras");
+		openextras->setPosition(screenSize/2 + CCPoint{292.5f, 164});
 
 		// Tabs
 
@@ -149,7 +84,7 @@ using namespace geode::prelude;
 		);
 		arrows->addChild(page_5);
 		page_5->setTag(4);
-		page_5->setPosition({221, 269});
+		page_5->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
 
 		CCMenuItemSpriteExtra* page_1_fix = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("edit_leftBtn_001.png"),
@@ -158,7 +93,7 @@ using namespace geode::prelude;
 		);
 		arrows->addChild(page_1_fix);
 		page_1_fix->setTag(-2);
-		page_1_fix->setPosition({221, 269});
+		page_1_fix->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
 
 
 		CCMenuItemSpriteExtra* page_left = CCMenuItemSpriteExtra::create(
@@ -168,14 +103,15 @@ using namespace geode::prelude;
 		);
 		arrows->addChild(page_left);
 		page_left->setTag(-1);
-		page_left->setPosition({221, 269});
+		page_left->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
 
 		CCMenuItemSpriteExtra* page_right = CCMenuItemSpriteExtra::create(
             CCSprite::createWithSpriteFrameName("edit_rightBtn_001.png"),
             this,
             menu_selector(NotepadLayer::onPage)
         );
-        page_right->setPosition({348, 269});
+        page_right->setPosition(ccp(348.5f, 268));
+		page_right->setPosition(screenSize/2 + CCPoint{64, 108});
         page_right->setTag(1);
         arrows->addChild(page_right);
 
@@ -234,11 +170,8 @@ using namespace geode::prelude;
 		this->setTouchEnabled(false);
 		this->removeFromParentAndCleanup(true);
 	}
-	void NotepadLayer::OpenSettings(CCObject*){
-		geode::openSettingsPopup(Mod::get());
-	}
-	void NotepadLayer::Info(CCObject*){
-		FLAlertLayer::create("Info", "1. Level Name (Tabs). 2. Text Input. 3. Checkbox. 4. Priority (Low, Medium, High)", "OK")->show();
+	void NotepadLayer::OpenExtras(CCObject*){
+		ExtrasLayer::create()->show();
 	}
 
 	void NotepadLayer::onPage(CCObject* sender) {
@@ -246,7 +179,7 @@ using namespace geode::prelude;
 
         auto page = static_cast<CCMenuItemSpriteExtra*>(sender);
 
-		// theres definitely a better way but this works for now I spent way too long on this
+		// there's definitely a better way but this works for now I spent way too much time on this
 
 			if (m_clicked > 0){
 				m_page2->setVisible(true);

@@ -2,7 +2,6 @@
 
 using namespace geode::prelude;
 
-
 class NotepadLayer: public FLAlertLayer{
 protected:
 
@@ -22,13 +21,27 @@ CCMenu* m_page5;
 bool init();
 
 void Close(CCObject*);
-void OpenSettings(CCObject*);
-void Info(CCObject*);
+void OpenExtras(CCObject*);
 void onPage(CCObject* sender);
 
 
 public:
    static NotepadLayer* create();
+};
+
+class ExtrasLayer: public FLAlertLayer{
+protected:
+
+bool init();
+
+
+void Close(CCObject*);
+void OpenSettings(CCObject*);
+void Info(CCObject*);
+
+
+public:
+   static ExtrasLayer* create();
 };
 
 class Tab1: public CCMenu{

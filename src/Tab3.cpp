@@ -16,31 +16,24 @@ using namespace geode::prelude;
 
 		// Menus
 
-
-		auto menu = CCMenu::create();
 		auto layout = CCMenu::create();
 		auto tabs = CCMenu::create();
 
 		this->addChild(tabs);
 		tabs->setPosition({54,21});
         tabs->setScale(0.8f);
-	    tabs->setZOrder(2);
 		tabs->setID("tabs");
 		
-	
-		this->addChild(menu);
-		menu->setPosition({0,0});
 
 		this->addChild(layout);
 		layout->setPosition({0,35});
 		layout->setScale(0.5f);
 		layout->setID("layout");
-		layout->setZOrder(3);
 
 		// Level Name (Tabs)
 
 		TextInput* inputname_1 = TextInput::create(100,"3/5","bigFont.fnt");
-		inputname_1->setPosition({217.5f, 243});
+		inputname_1->setPosition(ccp(217.5f, 268));
 		inputname_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-1-tab-3", "")));
 		inputname_1->setCallback([this](std::string const& str){
 
@@ -152,11 +145,22 @@ using namespace geode::prelude;
 		});
 		layout->addChild(input_10);
 
+		input_1->getBGSprite()->setVisible(false);
+		input_2->getBGSprite()->setVisible(false);
+		input_3->getBGSprite()->setVisible(false);
+		input_4->getBGSprite()->setVisible(false);
+		input_5->getBGSprite()->setVisible(false);
+		input_6->getBGSprite()->setVisible(false);
+		input_7->getBGSprite()->setVisible(false);
+		input_8->getBGSprite()->setVisible(false);
+		input_9->getBGSprite()->setVisible(false);
+		input_10->getBGSprite()->setVisible(false);
+
 
 		// Priority
 
         TextInput* input_priority_1 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_1->setPosition({435,205});
+		input_priority_1->setPosition({475,205});
 		input_priority_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-one-tab-3", "")));
 		input_priority_1->setCallback([this](std::string const& str){
 
@@ -166,7 +170,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_1);
 
         TextInput* input_priority_2 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_2->setPosition({435,164.5f});
+		input_priority_2->setPosition({475,164.5f});
 		input_priority_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-two-tab-3", "")));
 		input_priority_2->setCallback([this](std::string const& str){
 
@@ -176,7 +180,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_2);
 
         TextInput* input_priority_3 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_3->setPosition({435,124});
+		input_priority_3->setPosition({475,124});
 		input_priority_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-three-tab-3", "")));
 		input_priority_3->setCallback([this](std::string const& str){
 
@@ -186,7 +190,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_3);
 
         TextInput* input_priority_4 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_4->setPosition({435,84.5f});
+		input_priority_4->setPosition({475,84.5f});
 		input_priority_4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-four-tab-3", "")));
 		input_priority_4->setCallback([this](std::string const& str){
 
@@ -196,7 +200,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_4);
 
         TextInput* input_priority_5 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_5->setPosition({435,45});
+		input_priority_5->setPosition({475,45});
 		input_priority_5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-five-tab-3", "")));
 		input_priority_5->setCallback([this](std::string const& str){
 
@@ -206,7 +210,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_5);
 
 		TextInput* input_priority_6 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_6->setPosition({435,7});
+		input_priority_6->setPosition({475,7});
 		input_priority_6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-six-tab-3", "")));
 		input_priority_6->setCallback([this](std::string const& str){
 
@@ -216,7 +220,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_6);
 
         TextInput* input_priority_7 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_7->setPosition({435,-33});
+		input_priority_7->setPosition({475,-33});
 		input_priority_7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-seven-tab-3", "")));
 		input_priority_7->setCallback([this](std::string const& str){
 
@@ -226,7 +230,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_7);
 
         TextInput* input_priority_8 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_8->setPosition({435,-73});
+		input_priority_8->setPosition({475,-73});
 		input_priority_8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-eight-tab-3", "")));
 		input_priority_8->setCallback([this](std::string const& str){
 
@@ -236,7 +240,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_8);
 
         TextInput* input_priority_9 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_9->setPosition({435,-113});
+		input_priority_9->setPosition({475,-113});
 		input_priority_9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-nine-tab-3", "")));
 		input_priority_9->setCallback([this](std::string const& str){
 
@@ -246,7 +250,7 @@ using namespace geode::prelude;
 		layout->addChild(input_priority_9);
 
         TextInput* input_priority_10 = TextInput::create(50,"","bigFont.fnt");
-		input_priority_10->setPosition({435,-153});
+		input_priority_10->setPosition({475,-153});
 		input_priority_10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-ten-tab-3", "")));
 		input_priority_10->setCallback([this](std::string const& str){
 
@@ -255,66 +259,77 @@ using namespace geode::prelude;
 		});
 		layout->addChild(input_priority_10);
 
+		input_priority_1->getBGSprite()->setVisible(false);
+		input_priority_2->getBGSprite()->setVisible(false);
+		input_priority_3->getBGSprite()->setVisible(false);
+		input_priority_4->getBGSprite()->setVisible(false);
+		input_priority_5->getBGSprite()->setVisible(false);
+		input_priority_6->getBGSprite()->setVisible(false);
+		input_priority_7->getBGSprite()->setVisible(false);
+		input_priority_8->getBGSprite()->setVisible(false);
+		input_priority_9->getBGSprite()->setVisible(false);
+		input_priority_10->getBGSprite()->setVisible(false);
+
 		
 
 		// Checkboxes
 
 		CCMenuItemToggler* toggle = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox),1);
 		layout->addChild(toggle);
-		toggle->setPosition({371, 205});
+		toggle->setPosition({409, 205});
 		toggle->toggle(Mod::get()->getSavedValue<bool>("checkbox-tab-3", false));
 
 		CCMenuItemToggler* toggle_2 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox2),1);
 		toggle_2->toggle(false);
 		layout->addChild(toggle_2);
-		toggle_2->setPosition({371, 164.5f});
+		toggle_2->setPosition({409, 164.5f});
 		toggle_2->toggle(Mod::get()->getSavedValue<bool>("checkbox-2-tab-3", false));
 
 		CCMenuItemToggler* toggle_3 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox3),1);
 		toggle_3->toggle(false);
 		layout->addChild(toggle_3);
-		toggle_3->setPosition({371, 124});
+		toggle_3->setPosition({409, 124});
 		toggle_3->toggle(Mod::get()->getSavedValue<bool>("checkbox-3-tab-3", false));
 
 		CCMenuItemToggler* toggle_4 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox4),1);
 		toggle_4->toggle(false);
 		layout->addChild(toggle_4);
-		toggle_4->setPosition({371, 84.5f});
+		toggle_4->setPosition({409, 84.5f});
 		toggle_4->toggle(Mod::get()->getSavedValue<bool>("checkbox-4-tab-3", false));
 
 		CCMenuItemToggler* toggle_5 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox5),1);
 		toggle_5->toggle(false);
 		layout->addChild(toggle_5);
-		toggle_5->setPosition({371, 45});
+		toggle_5->setPosition({409, 45});
 		toggle_5->toggle(Mod::get()->getSavedValue<bool>("checkbox-5-tab-3", false));
 
 		CCMenuItemToggler* toggle_6 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox6),1);
 		layout->addChild(toggle_6);
-		toggle_6->setPosition({371, 7});
+		toggle_6->setPosition({409, 7});
 		toggle_6->toggle(Mod::get()->getSavedValue<bool>("checkbox-6-tab-3", false));
 
 		CCMenuItemToggler* toggle_7 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox7),1);
 		toggle_7->toggle(false);
 		layout->addChild(toggle_7);
-		toggle_7->setPosition({371, -33});
+		toggle_7->setPosition({409, -33});
 		toggle_7->toggle(Mod::get()->getSavedValue<bool>("checkbox-7-tab-3", false));
 
 		CCMenuItemToggler* toggle_8 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox8),1);
 		toggle_8->toggle(false);
 		layout->addChild(toggle_8);
-		toggle_8->setPosition({371, -73});
+		toggle_8->setPosition({409, -73});
 		toggle_8->toggle(Mod::get()->getSavedValue<bool>("checkbox-8-tab-3", false));
 
 		CCMenuItemToggler* toggle_9 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox9),1);
 		toggle_9->toggle(false);
 		layout->addChild(toggle_9);
-		toggle_9->setPosition({371, -113});
+		toggle_9->setPosition({409, -113});
 		toggle_9->toggle(Mod::get()->getSavedValue<bool>("checkbox-9-tab-3", false));
 
 		CCMenuItemToggler* toggle_10 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox10),1);
 		toggle_10->toggle(false);
 		layout->addChild(toggle_10);
-		toggle_10->setPosition({371, -153});
+		toggle_10->setPosition({409, -153});
 		toggle_10->toggle(Mod::get()->getSavedValue<bool>("checkbox-10-tab-3", false));
 
 

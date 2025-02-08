@@ -15,32 +15,25 @@ using namespace geode::prelude;
 		auto screenSize = CCDirector::get()->getWinSize();
 
 		// Menus
-
-		auto menu = CCMenu::create();
+		
 		auto layout = CCMenu::create();
 		auto tabs = CCMenu::create();
 
 		this->addChild(tabs);
 		tabs->setPosition({54,21});
         tabs->setScale(0.8f * relativescale);
-	    tabs->setZOrder(2);
 		tabs->setID("tabs");
-
-	
-		this->addChild(menu);
-		menu->setPosition({0,0});
 
 		this->addChild(layout);
 		layout->setPosition({0,35});
 		layout->setScale(0.5f * relativescale);
 		layout->setID("layout");
-		layout->setZOrder(3);
 
 
 		// Level Name (Tabs)
 
 		TextInput* inputname_1 = TextInput::create(100,"4/5","bigFont.fnt");
-		inputname_1->setPosition({217.5f, 243});
+		inputname_1->setPosition(ccp(217.5f, 268));
 		inputname_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-1-tab-4", "")));
 		inputname_1->setCallback([this](std::string const& str){
 
