@@ -11,7 +11,6 @@ using namespace geode::prelude;
 		geode::cocos::handleTouchPriority(this);
 		this->registerWithTouchDispatcher();
 
-		float relativescale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
 		auto screenSize = CCDirector::sharedDirector()->getWinSize();
 	
 
@@ -23,7 +22,7 @@ using namespace geode::prelude;
 		auto arrows = CCMenu::create();
 
 		this->addChild(smallbutton);
-		smallbutton->setScale(0.675f * relativescale);
+		smallbutton->setScale(0.675f);
 		smallbutton->setID("small-buttons");
 		smallbutton->setPosition(ccp(0,0));
 		smallbutton->setZOrder(2);
@@ -36,8 +35,6 @@ using namespace geode::prelude;
 		arrows->setPosition(ccp(0,0));
 		arrows->setID("arrows");
 		arrows->setZOrder(1);
-		arrows->setScale(1 * relativescale);
-
 
 		// bg
 

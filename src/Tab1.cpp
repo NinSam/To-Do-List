@@ -25,15 +25,11 @@ using namespace geode::prelude;
 		this->addChild(tabs);
 		tabs->setPosition(ccp(0,0));
 		tabs->setID("tabs");
-	
-		
-		layout->setScale(1 * relativescale);
+
 		layout->setID("layout");
 
 
 		// ScrollLayer
-
-		layout->setScale(1.252* relativescale);
 
 		auto scroll = ScrollLayer::create({460,211},true, true);
 		
@@ -58,52 +54,52 @@ using namespace geode::prelude;
 
 		 auto first = CCLabelBMFont::create("1.", "bigFont.fnt");
 		 first->setPosition(ccp(32, 203));
-		 first->setScale(0.7f * relativescale);
+		 first->setScale(0.7f);
 		 layout->addChild(first);
  
 		 auto second = CCLabelBMFont::create("2.", "bigFont.fnt");
 		 second->setPosition(ccp(32, 163));
-		 second->setScale(0.7f * relativescale);
+		 second->setScale(0.7f);
 		 layout->addChild(second);
  
 		 auto third = CCLabelBMFont::create("3.", "bigFont.fnt");
 		 third->setPosition(ccp(32, 123));
-		 third->setScale(0.7f * relativescale);
+		 third->setScale(0.7f);
 		 layout->addChild(third);
  
 		 auto fourth = CCLabelBMFont::create("4.", "bigFont.fnt");
 		 fourth->setPosition(ccp(32, 83));
-		 fourth->setScale(0.7f * relativescale);
+		 fourth->setScale(0.7f);
 		 layout->addChild(fourth);
  
 		 auto fifth = CCLabelBMFont::create("5.", "bigFont.fnt");
 		 fifth->setPosition(ccp(32, 43));
-		 fifth->setScale(0.7f * relativescale);
+		 fifth->setScale(0.7f);
 		 layout->addChild(fifth);
  
 		 auto sixth = CCLabelBMFont::create("6.", "bigFont.fnt");
 		 sixth->setPosition(ccp(32, 4));
-		 sixth->setScale(0.7f * relativescale);
+		 sixth->setScale(0.7f);
 		 layout->addChild(sixth);
  
 		 auto seventh = CCLabelBMFont::create("7.", "bigFont.fnt");
 		 seventh->setPosition(ccp(32, -36));
-		 seventh->setScale(0.7f * relativescale);
+		 seventh->setScale(0.7f);
 		 layout->addChild(seventh);
  
 		 auto eighth = CCLabelBMFont::create("8.", "bigFont.fnt");
 		 eighth->setPosition(ccp(32, -76));
-		 eighth->setScale(0.7f * relativescale);
+		 eighth->setScale(0.7f);
 		 layout->addChild(eighth);
  
 		 auto ninth = CCLabelBMFont::create("9.", "bigFont.fnt");
 		 ninth->setPosition(ccp(32, -116));
-		 ninth->setScale(0.7f * relativescale);
+		 ninth->setScale(0.7f);
 		 layout->addChild(ninth);
  
 		 auto tenth = CCLabelBMFont::create("10.", "bigFont.fnt");
 		 tenth->setPosition(ccp(32, -156));
-		 tenth->setScale(0.7f * relativescale);
+		 tenth->setScale(0.7f);
 		 layout->addChild(tenth);
 	
 

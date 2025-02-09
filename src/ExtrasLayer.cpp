@@ -12,7 +12,6 @@ using namespace geode::prelude;
 		geode::cocos::handleTouchPriority(this);
 		this->registerWithTouchDispatcher();
 
-		float relativescale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
 		auto screenSize = CCDirector::sharedDirector()->getWinSize();
 
         // menu
@@ -28,7 +27,7 @@ using namespace geode::prelude;
 
 		this->addChild(extrasmallbtns);
 		extrasmallbtns->setPosition(ccp(0,0));
-		extrasmallbtns->setScale(0.7f * relativescale);
+		extrasmallbtns->setScale(0.7f);
 
 		auto extrabg = CCScale9Sprite::create("GJ_square01.png");
 		extrabg->setPosition(screenSize/2 + CCPoint{179,59.5f});
