@@ -5,7 +5,7 @@ using namespace geode::prelude;
 
 	bool ExtrasLayer::init(){
 
-		if (!FLAlertLayer::init(0))
+		if (!FLAlertLayer::init(100))
 
 		return false;
 
@@ -21,19 +21,25 @@ using namespace geode::prelude;
         auto extrasmallbtns = CCMenu::create();
 
 		this->addChild(extramenu);
-		extramenu->setPosition(ccp(0,0));
+		extramenu->setPosition(0,0);
 		extramenu->setID("extras");
-
+		extramenu->setTouchPriority(-507);
 
 		this->addChild(extrasmallbtns);
-		extrasmallbtns->setPosition(ccp(0,0));
-		extrasmallbtns->setScale(0.7f);
+		extrasmallbtns->setPosition(0,0);
+		extrasmallbtns->setScale(0.6f);
+		extrasmallbtns->setID("settings");
+		extrasmallbtns->setTouchPriority(-507);
 
-		auto extrabg = CCScale9Sprite::create("GJ_square01.png");
+		// bg
+
+		auto extrabg = CCScale9Sprite::create("square01_001.png");
 		extrabg->setPosition(screenSize/2 + CCPoint{179,59.5f});
 		extrabg->setContentSize({108, 161});
 		extramenu->addChild(extrabg);
-
+	
+		// buttons
+		
         auto extrabutton = CCMenuItemSpriteExtra::create(
 			ButtonSprite::create("Back"),
 			this,
@@ -50,7 +56,7 @@ using namespace geode::prelude;
 			menu_selector(ExtrasLayer::OpenSettings)
 		);
 
-		extrasettings->setPosition(screenSize/2 + CCPoint{256, 84});
+		extrasettings->setPosition(screenSize/2 + CCPoint{299, 99});
 		extrasmallbtns->addChild(extrasettings);
 
         auto extrainfo = CCMenuItemSpriteExtra::create(
@@ -71,7 +77,7 @@ using namespace geode::prelude;
 		return true;
 
 	}
-	void ExtrasLayer::Close(CCObject*){
+	void ExtrasLayer::Close(CCObject* sender){
 		this->setTouchEnabled(false);
 		this->removeFromParentAndCleanup(true);
 	}
@@ -79,10 +85,8 @@ using namespace geode::prelude;
         geode::openSettingsPopup(Mod::get());
 	}
 	void ExtrasLayer::Info(CCObject*){
-		FLAlertLayer::create("Info", "1. Level Name (Tabs). 2. Text Input. 3. Checkbox. 4. Priority (Low, Medium, High).", "OK")->show();
+		FLAlertLayer::create("Info", "1. 5 tabs (Level Name). 2. 10 text inputs per tab. 3. 10 checkboxes per tab. 4. 10 priorities per tab (Example: Low, Medium, High).", "OK")->show();
 	}
-
-	//geode::openSettingsPopup(Mod::get());
 
 	ExtrasLayer* ExtrasLayer::create(){
 		auto ret = new ExtrasLayer;
