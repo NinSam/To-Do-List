@@ -17,6 +17,8 @@ CCMenu* m_page3;
 CCMenu* m_page4;
 CCMenu* m_page5;
 
+ScrollLayer* m_scroll;
+
 TextInput* m_inputname_1;
 TextInput* m_inputname_2;
 TextInput* m_inputname_3;

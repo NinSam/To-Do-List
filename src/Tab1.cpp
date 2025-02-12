@@ -18,36 +18,8 @@ using namespace geode::prelude;
 
 
 		auto layout = CCMenu::create();
-		auto tabs = CCMenu::create();
-
-		this->addChild(tabs);
-		tabs->setPosition(0,0);
-		tabs->setID("tabs");
-
-		layout->setID("layout");
-
-		// ScrollLayer
-
-		auto scroll = ScrollLayer::create({445,204.5f},true, true);
-		
-		scroll->m_contentLayer->addChild(layout);
-		scroll->m_contentLayer->setLayout(
-
-			ColumnLayout::create()
-			->setAxisReverse(true)
-            ->setAxisAlignment(AxisAlignment::End)
-			->setAutoGrowAxis(500)
-
-		);
-		scroll->m_contentLayer->setPositionY(-208);
-		scroll->m_contentLayer->setContentHeight(412.5f);
-		scroll->setTouchEnabled(true);
-		this->addChild(scroll);
-		scroll->setPosition(screenSize/2 + CCPoint{-230.5f, -125});
-
-		auto scrollbar = Scrollbar::create(scroll);
-		scrollbar->setPosition(screenSize/2 + CCPoint{220, -28});
-		this->addChild(scrollbar);
+		layout->setPosition(0,0);
+		this->addChild(layout);
 
 
 		 // Labels
@@ -375,8 +347,6 @@ using namespace geode::prelude;
 		// this
 		
 		this->setKeypadEnabled(true);
-		this->setTouchEnabled(true);
-		scroll->updateLayout();
 		
 		return true;
 

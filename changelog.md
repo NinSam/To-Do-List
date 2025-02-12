@@ -2,7 +2,7 @@
 
 ## v1.1.0
 
-- To-Do List has been revamped!
+- To-Do List now uses my own UI instead of using mod settings
 - Button Color setting has been reworked
 
 ## v1.0.4

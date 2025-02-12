@@ -5,7 +5,7 @@ using namespace geode::prelude;
 
 	bool ExtrasLayer::init(){
 
-		if (!FLAlertLayer::init(100))
+		if (!FLAlertLayer::init(50))
 
 		return false;
 
@@ -85,7 +85,7 @@ using namespace geode::prelude;
         geode::openSettingsPopup(Mod::get());
 	}
 	void ExtrasLayer::Info(CCObject*){
-		FLAlertLayer::create("Info", "1. 5 tabs (Level Name). 2. 10 text inputs per tab. 3. 10 checkboxes per tab. 4. 10 priorities per tab (Example: Low, Medium, High).", "OK")->show();
+		FLAlertLayer::create("Info", "5 tabs (Level Name). 10 text inputs per tab, 10 checkboxes per tab, and 10 priorities per tab (Example: Low, Medium, High).", "OK")->show();
 	}
 
 	ExtrasLayer* ExtrasLayer::create(){

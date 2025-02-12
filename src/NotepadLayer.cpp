@@ -22,34 +22,29 @@ using namespace geode::prelude;
 		auto touchfixes = CCMenu::create();
 		auto tabs = CCMenu::create();
 
-		this->addChild(smallbutton);
+		this->addChild(smallbutton,2);
 		smallbutton->setScale(0.675f);
 		smallbutton->setID("small-buttons");
 		smallbutton->setPosition(0,0);
-		smallbutton->setZOrder(2);
 		smallbutton->setTouchPriority(-507);
 	
-		this->addChild(menu);
+		this->addChild(menu,1);
 		menu->setPosition(0,0);
-		menu->setZOrder(1);
 		menu->setID("close-button");
 
-		this->addChild(touchfixes);
+		this->addChild(touchfixes,1);
 		touchfixes->setPosition(0,0);
 		touchfixes->setID("touchfixes");
-		touchfixes->setZOrder(1);
 		touchfixes->setTouchPriority(-506);
 
-		this->addChild(tabs);
+		this->addChild(tabs,1);
 		tabs->setPosition(0,0);
 		tabs->setID("tabs");
-		tabs->setZOrder(1);
 		tabs->setTouchPriority(-508);
 
-		this->addChild(arrows);
+		this->addChild(arrows,1);
 		arrows->setPosition(0,0);
 		arrows->setID("arrows");
-		arrows->setZOrder(1);
 		arrows->setTouchPriority(-507);
 
 		// bg
@@ -130,8 +125,8 @@ using namespace geode::prelude;
 		auto outline = CCScale9Sprite::createWithSpriteFrameName("block008_topcolor_15_001.png");
 		outline->setPosition(screenSize/2 + CCPoint{0,80});
 		outline->setContentSize({461, 2.5f});
-		this->addChild(outline);
 		outline->setColor(ccc3(0,0,0));
+		this->addChild(outline);
 
 
 		// Buttons
@@ -151,7 +146,7 @@ using namespace geode::prelude;
 		);
 		smallbutton->addChild(openextras);
 		openextras->setID("open-extras");
-		openextras->setPosition(screenSize/2 + CCPoint{292.5f, 164});
+		openextras->setPosition(screenSize/2 + CCPoint{292.5f, 162});
 
 		// Tabs
 
@@ -193,41 +188,15 @@ using namespace geode::prelude;
         arrows->addChild(page_right);
 
 		auto tab1 = Tab1::create();
-		this->addChild(tab1);
-		tab1->setPosition(0,0);
-
 		auto tab2 = Tab2::create();
-		this->addChild(tab2);
-		tab2->setPositionX(0);
-
 		auto tab3 = Tab3::create();
-		this->addChild(tab3);
-		tab3->setPositionX(0);
-
 		auto tab4 = Tab4::create();
-		this->addChild(tab4);
-		tab4->setPositionX(0);
-
 		auto tab5 = Tab5::create();
-		this->addChild(tab5);
-		tab5->setPositionX(0);
-
-		tab2->setPositionY(99999); // to fix scrollbar issues. TableView might fix the scrollwheel issue between tabs but not really sure how to set it up properly. I spent way too many late nighters fixing these bugs lol.
-		tab3->setPositionY(99999);
-		tab4->setPositionY(99999);
-		tab5->setPositionY(99999);
 
 		inputname_2->setVisible(false);
 		inputname_3->setVisible(false);
 		inputname_4->setVisible(false);
 		inputname_5->setVisible(false);
-
-
-        m_page1 = tab1;
-		m_page2 = tab2;
-		m_page3 = tab3;
-		m_page4 = tab4;
-		m_page5 = tab5;
 
 		m_inputname_1 = inputname_1;
 		m_inputname_2 = inputname_2;
@@ -243,6 +212,47 @@ using namespace geode::prelude;
 		m_page_left->setVisible(false);
 		page_1_fix->setVisible(false);
 
+		// ScrollLayer
+
+		m_scroll = ScrollLayer::create({445,204.5f},true, true);
+		
+		m_scroll->m_contentLayer->addChild(tab1);
+		m_scroll->m_contentLayer->addChild(tab2);
+		m_scroll->m_contentLayer->addChild(tab3);
+		m_scroll->m_contentLayer->addChild(tab4);
+		m_scroll->m_contentLayer->addChild(tab5);
+		m_scroll->m_contentLayer->setLayout(
+
+			ColumnLayout::create()
+			->setAxisReverse(true)
+            ->setAxisAlignment(AxisAlignment::End)
+			->setAutoGrowAxis(500)
+
+		);
+		
+		m_scroll->m_contentLayer->setPositionY(-208);
+		m_scroll->m_contentLayer->setContentHeight(412.5f);
+		m_scroll->setPosition(screenSize/2 + CCPoint{-230.5f, -125});
+		this->addChild(m_scroll);
+
+		auto scrollbar = Scrollbar::create(m_scroll);
+		scrollbar->setPosition(screenSize/2 + CCPoint{220, -28});
+		this->addChild(scrollbar);
+
+		tab1->setPosition(screenSize/2 + CCPoint{0, 181});
+		tab2->setPositionY(99999);
+		tab3->setPositionY(99999);
+		tab4->setPositionY(99999);
+		tab5->setPositionY(99999);
+
+		scrollbar->setScaleX(1.25f);
+
+		m_page1 = tab1;
+		m_page2 = tab2;
+		m_page3 = tab3;
+		m_page4 = tab4;
+		m_page5 = tab5;
+	
 
 		// this
 		
@@ -264,14 +274,18 @@ using namespace geode::prelude;
         m_clicked += sender->getTag();
 
         auto page = static_cast<CCMenuItemSpriteExtra*>(sender);
+		auto screenSize = CCDirector::sharedDirector()->getWinSize();
 
-		// there's definitely a better way but this works for now I spent way too much time on this
+		// there's definitely a better way but this works for now I spent way too much time on this.
 
 			if (m_clicked > 0){
-				m_page2->setPositionY(0);
+				m_page2->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_scroll->scrollToTop();
+				m_page2->setVisible(true);
 				m_page1->setPositionY(99999);
 				m_page3->setPositionY(99999);
 				m_page5->setPositionY(99999);
+
 
 				m_inputname_2->setVisible(true);
 				m_inputname_1->setVisible(false);
@@ -284,10 +298,13 @@ using namespace geode::prelude;
 				
 			}
 			if (m_clicked > 1){
-				m_page3->setPositionY(0);
+				m_page3->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_scroll->scrollToTop();
+				m_page3->setVisible(true);
 				m_page2->setPositionY(99999);
 				m_page4->setPositionY(99999);
 				m_page1->setPositionY(99999);
+
 
 				m_inputname_3->setVisible(true);
 				m_inputname_2->setVisible(false);
@@ -299,10 +316,13 @@ using namespace geode::prelude;
 				
 			}
 			if (m_clicked > 2){
-				m_page4->setPositionY(0);
+				m_page4->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_scroll->scrollToTop();
+				m_page4->setVisible(true);
 				m_page3->setPositionY(99999);
 				m_page5->setPositionY(99999);
 				m_page1->setPositionY(99999);
+
 
 				m_inputname_4->setVisible(true);
 				m_inputname_3->setVisible(false);
@@ -311,7 +331,9 @@ using namespace geode::prelude;
 
 			}
 			if (m_clicked > 3){
-				m_page5->setPositionY(0);
+				m_page5->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_scroll->scrollToTop();
+				m_page5->setVisible(true);
 				m_page4->setPositionY(99999);
 				m_page1->setPositionY(99999);
 				m_page2->setPositionY(99999);
@@ -326,7 +348,9 @@ using namespace geode::prelude;
 				
 			}
 			if (m_clicked > 4){
-				m_page1->setPositionY(0);
+				m_page1->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_scroll->scrollToTop();
+				m_page1->setVisible(true);
 				m_page5->setPositionY(99999);
 				m_page2->setPositionY(99999);
 				m_page4->setPositionY(99999);
