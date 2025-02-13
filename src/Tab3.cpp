@@ -343,10 +343,6 @@ using namespace geode::prelude;
 		toggle_10->setPosition({310, -153});
 		toggle_10->toggle(Mod::get()->getSavedValue<bool>("checkbox-10-tab-3", false));
 
-	
-		// this
-
-		this->setKeypadEnabled(true);
 		
 		return true;
 

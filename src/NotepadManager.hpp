@@ -11,11 +11,11 @@ CCMenuItemSpriteExtra* m_page_5;
 CCMenuItemSpriteExtra* m_page_1_fix;
 CCMenuItemSpriteExtra* m_page_left;
 
-CCMenu* m_page1;
-CCMenu* m_page2;
-CCMenu* m_page3;
-CCMenu* m_page4;
-CCMenu* m_page5;
+CCLayer* m_page1;
+CCLayer* m_page2;
+CCLayer* m_page3;
+CCLayer* m_page4;
+CCLayer* m_page5;
 
 ScrollLayer* m_scroll;
 
@@ -25,31 +25,15 @@ TextInput* m_inputname_3;
 TextInput* m_inputname_4;
 TextInput* m_inputname_5;
 
-bool init();
-
-void Close(CCObject* sender);
-void OpenExtras(CCObject*);
-void onPage(CCObject* sender);
-void Nothing(CCObject* sender);
-
-
-public:
-   static NotepadLayer* create();
-};
-
-class ExtrasLayer: public FLAlertLayer{
-protected:
-
-bool init();
-
+bool setup();
 
 void Close(CCObject* sender);
 void OpenSettings(CCObject*);
-void Info(CCObject*);
-
+void onPage(CCObject* sender);
+void onTouchFix(CCObject* sender);
 
 public:
-   static ExtrasLayer* create();
+   static NotepadLayer* create();
 };
 
 class Tab1: public CCMenu{

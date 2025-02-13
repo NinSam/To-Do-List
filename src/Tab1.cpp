@@ -77,8 +77,26 @@ using namespace geode::prelude;
 
 		// TextInputs
 
+		std::string str;
+		std::string str2;
+		std::string str3;
+		std::string str4;
+		std::string str5;
+		std::string str6;
 
-		TextInput* input_1 = TextInput::create(200,"","bigFont.fnt");
+		if (!Mod::get()->setSavedValue("one-time-example", true)){
+
+			str = "Low";
+			str2 = "Med";
+			str3 = "High";
+
+			str4 = "Add pulses at 82-90%";
+			str5 = "Add glow in the BG";
+			str6 = "Optimize 40-52%";
+
+		}
+
+		TextInput* input_1 = TextInput::create(200,str4,"bigFont.fnt");
 		input_1->setPosition(153, 204);
 		input_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-1-tab-1", "")));
 		input_1->setCallback([this](std::string const& str){
@@ -88,7 +106,7 @@ using namespace geode::prelude;
 		});
 		layout->addChild(input_1);
 
-		TextInput* input_2 = TextInput::create(200,"","bigFont.fnt");
+		TextInput* input_2 = TextInput::create(200,str5,"bigFont.fnt");
 		input_2->setPosition({153,164.5f});
 		input_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-2-tab-1", "")));
 		input_2->setCallback([this](std::string const& str){
@@ -98,7 +116,7 @@ using namespace geode::prelude;
 		});
 		layout->addChild(input_2);
 
-		TextInput* input_3 = TextInput::create(200,"","bigFont.fnt");
+		TextInput* input_3 = TextInput::create(200,str6,"bigFont.fnt");
 		input_3->setPosition({153,124});
 		input_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-3-tab-1", "")));
 		input_3->setCallback([this](std::string const& str){
@@ -181,7 +199,7 @@ using namespace geode::prelude;
 
 		// Priority
 
-        TextInput* input_priority_1 = TextInput::create(50,"","bigFont.fnt");
+        TextInput* input_priority_1 = TextInput::create(50,str,"bigFont.fnt");
 		input_priority_1->setPosition({395,204});
 		input_priority_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-one-tab-1", "")));
 		input_priority_1->setCallback([this](std::string const& str){
@@ -191,7 +209,7 @@ using namespace geode::prelude;
 		});
 		layout->addChild(input_priority_1);
 
-        TextInput* input_priority_2 = TextInput::create(50,"","bigFont.fnt");
+        TextInput* input_priority_2 = TextInput::create(50,str2,"bigFont.fnt");
 		input_priority_2->setPosition({395,164.5f});
 		input_priority_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-two-tab-1", "")));
 		input_priority_2->setCallback([this](std::string const& str){
@@ -201,7 +219,7 @@ using namespace geode::prelude;
 		});
 		layout->addChild(input_priority_2);
 
-        TextInput* input_priority_3 = TextInput::create(50,"","bigFont.fnt");
+        TextInput* input_priority_3 = TextInput::create(50,str3,"bigFont.fnt");
 		input_priority_3->setPosition({395,124});
 		input_priority_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-priority-three-tab-1", "")));
 		input_priority_3->setCallback([this](std::string const& str){
@@ -343,10 +361,6 @@ using namespace geode::prelude;
 		toggle_10->setPosition({310, -153});
 		toggle_10->toggle(Mod::get()->getSavedValue<bool>("checkbox-10-tab-1", false));
 
-	
-		// this
-		
-		this->setKeypadEnabled(true);
 		
 		return true;
 

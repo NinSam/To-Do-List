@@ -1,8 +1,9 @@
 #include "NotepadManager.hpp"
+#include <Geode/ui/GeodeUI.hpp>
 
 using namespace geode::prelude;
 
-	bool NotepadLayer::init(){
+	bool NotepadLayer::setup(){
 
 		if (!FLAlertLayer::init(150))
 
@@ -10,6 +11,7 @@ using namespace geode::prelude;
 
 		geode::cocos::handleTouchPriority(this);
 		this->registerWithTouchDispatcher();
+		this->m_noElasticity = true;
 
 		auto screenSize = CCDirector::sharedDirector()->getWinSize();
 	
@@ -22,40 +24,55 @@ using namespace geode::prelude;
 		auto touchfixes = CCMenu::create();
 		auto tabs = CCMenu::create();
 
-		this->addChild(smallbutton,2);
-		smallbutton->setScale(0.675f);
+		m_mainLayer->addChild(smallbutton,2);
+		smallbutton->setScale(0.8f);
 		smallbutton->setID("small-buttons");
 		smallbutton->setPosition(0,0);
-		smallbutton->setTouchPriority(-507);
 	
-		this->addChild(menu,1);
+		m_mainLayer->addChild(menu,1);
 		menu->setPosition(0,0);
 		menu->setID("close-button");
 
-		this->addChild(touchfixes,1);
+		m_mainLayer->addChild(touchfixes,1);
 		touchfixes->setPosition(0,0);
 		touchfixes->setID("touchfixes");
-		touchfixes->setTouchPriority(-506);
 
-		this->addChild(tabs,1);
+		m_mainLayer->addChild(tabs,1);
 		tabs->setPosition(0,0);
 		tabs->setID("tabs");
-		tabs->setTouchPriority(-508);
 
-		this->addChild(arrows,1);
+		m_mainLayer->addChild(arrows,1);
 		arrows->setPosition(0,0);
 		arrows->setID("arrows");
-		arrows->setTouchPriority(-507);
+
+		// CCTouchDispatcher::get()->addTargetedDelegate(this, int, true);
+
+		menu->setTouchPriority(-504);
+		smallbutton->setTouchPriority(-506);
+		touchfixes->setTouchPriority(-505);
+		arrows->setTouchPriority(-505);
+		tabs->setTouchPriority(-505);
 
 		// bg
 
 		auto bg = CCScale9Sprite::create("GJ_square01.png");
 	    bg->setPosition(screenSize/2);
 		bg->setContentSize({466, 280});
-		this->addChild(bg);
+		m_mainLayer->addChild(bg);
 
+		// touch fix
 
-		// Tabs (touch fix)
+		auto touchfix = CCMenuItemSpriteExtra::create(
+			CCSprite::createWithSpriteFrameName("block008_topcolor_15_001.png"),
+			this,
+			menu_selector(NotepadLayer::onTouchFix)
+		);
+		touchfix->setPosition(screenSize/2 + CCPoint{0,170});
+		touchfix->setContentSize({385, 181});
+		touchfixes->addChild(touchfix);
+		touchfix->setOpacity(0);
+
+		// Tabs
 
 		TextInput* inputname_1 = TextInput::create(100,"1/5","bigFont.fnt");
 		inputname_1->setPosition(screenSize/2 + CCPoint{0, 108});
@@ -107,26 +124,13 @@ using namespace geode::prelude;
 		});
 		tabs->addChild(inputname_5);
 
-		// touch fix
-
-		auto touchfix_3 = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("block008_topcolor_15_001.png"),
-			this,
-			menu_selector(NotepadLayer::Nothing)
-		);
-		touchfix_3->setPosition(screenSize/2 + CCPoint{0,170});
-		touchfix_3->setContentSize({385, 181});
-		touchfixes->addChild(touchfix_3);
-		touchfix_3->setOpacity(0);
-
-
 		// outline
 
 		auto outline = CCScale9Sprite::createWithSpriteFrameName("block008_topcolor_15_001.png");
 		outline->setPosition(screenSize/2 + CCPoint{0,80});
 		outline->setContentSize({461, 2.5f});
 		outline->setColor(ccc3(0,0,0));
-		this->addChild(outline);
+		m_mainLayer->addChild(outline);
 
 
 		// Buttons
@@ -139,14 +143,14 @@ using namespace geode::prelude;
 		menu->addChild(closebutton);
 	    closebutton->setPosition(screenSize/2 + CCPoint{-231.5f, 135});
 
-		auto openextras = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("GJ_menuBtn_001.png"),
+		auto opensettings = CCMenuItemSpriteExtra::create(
+			CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png"),
 			this,
-			menu_selector(NotepadLayer::OpenExtras)
+			menu_selector(NotepadLayer::OpenSettings)
 		);
-		smallbutton->addChild(openextras);
-		openextras->setID("open-extras");
-		openextras->setPosition(screenSize/2 + CCPoint{292.5f, 162});
+		smallbutton->addChild(opensettings);
+		opensettings->setID("settings");
+		opensettings->setPosition(screenSize/2 + CCPoint{249.5f, 137});
 
 		// Tabs
 
@@ -233,11 +237,11 @@ using namespace geode::prelude;
 		m_scroll->m_contentLayer->setPositionY(-208);
 		m_scroll->m_contentLayer->setContentHeight(412.5f);
 		m_scroll->setPosition(screenSize/2 + CCPoint{-230.5f, -125});
-		this->addChild(m_scroll);
+		m_mainLayer->addChild(m_scroll);
 
 		auto scrollbar = Scrollbar::create(m_scroll);
 		scrollbar->setPosition(screenSize/2 + CCPoint{220, -28});
-		this->addChild(scrollbar);
+		m_mainLayer->addChild(scrollbar);
 
 		tab1->setPosition(screenSize/2 + CCPoint{0, 181});
 		tab2->setPositionY(99999);
@@ -252,24 +256,24 @@ using namespace geode::prelude;
 		m_page3 = tab3;
 		m_page4 = tab4;
 		m_page5 = tab5;
-	
 
-		// this
 		
-		this->setTouchEnabled(true);
-		this->updateLayout();
+		m_mainLayer->setTouchEnabled(true);
+		m_mainLayer->updateLayout();
 		
 		return true;
 
 	}
-	void NotepadLayer::Close(CCObject* sender){
-		this->setTouchEnabled(false);
-		this->removeFromParentAndCleanup(true);
-	}
-	void NotepadLayer::OpenExtras(CCObject*){
-		ExtrasLayer::create()->show();
-	}
+	void NotepadLayer::onTouchFix(CCObject* sender){
 
+	}
+	void NotepadLayer::Close(CCObject* sender){
+		this->keyBackClicked(); // THIS FIXED THE setTouchPriority ISSUE!
+	}
+	void NotepadLayer::OpenSettings(CCObject*){
+		this->keyBackClicked(); // TouchPriority issue
+		geode::openSettingsPopup(Mod::get());
+	}
 	void NotepadLayer::onPage(CCObject* sender) {
         m_clicked += sender->getTag();
 
@@ -367,13 +371,10 @@ using namespace geode::prelude;
 				m_clicked = 0;
 			}
     }
-	void NotepadLayer::Nothing(CCObject* sender){
-	
-	}
 
 	NotepadLayer* NotepadLayer::create(){
 		auto ret = new NotepadLayer;
-		if (ret && ret->init()){
+		if (ret && ret->setup()){
 
 			ret->autorelease();
 			return ret;
