@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.1
+
+- Close button TouchPriority is now set to -507 instead of -504
+
 ## v1.1.0
 
 - To-Do List now uses my own UI instead of using mod settings

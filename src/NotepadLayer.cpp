@@ -47,7 +47,7 @@ using namespace geode::prelude;
 
 		// CCTouchDispatcher::get()->addTargetedDelegate(this, int, true);
 
-		menu->setTouchPriority(-504);
+		menu->setTouchPriority(-507); // the right half of the button won't register on mobile because you end up tapping on the touchfix button
 		smallbutton->setTouchPriority(-506);
 		touchfixes->setTouchPriority(-505);
 		arrows->setTouchPriority(-505);
