@@ -159,7 +159,7 @@ using namespace geode::prelude;
 
 		TextInput* inputname_3 = TextInput::create(100,"3/5","bigFont.fnt");
 		inputname_3->setPosition(screenSize/2 + CCPoint{0, 108});
-		inputname_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-2-tab-2", "")));
+		inputname_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-3-tab-3", "")));
 		inputname_3->setCallback([this](std::string const& str){
 
         (Mod::get()->setSavedValue<std::string>("input-name-3-tab-3", str));

@@ -3,6 +3,7 @@
 ## v1.1.1
 
 - TouchPriority fixes for android
+- Fixed Tab 2 & 3 for having the same set string
 - Better Layout positioning
 
 ## v1.1.0
