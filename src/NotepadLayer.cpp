@@ -23,6 +23,9 @@ using namespace geode::prelude;
 		auto arrows = CCMenu::create();
 		auto touchfixes = CCMenu::create();
 		auto tabs = CCMenu::create();
+		auto numlabels = CCLayer::create();
+
+		numlabels->setID("numbers");
 
 		m_mainLayer->addChild(smallbutton,2);
 		smallbutton->setScale(0.8f);
@@ -47,11 +50,11 @@ using namespace geode::prelude;
 
 		// CCTouchDispatcher::get()->addTargetedDelegate(this, int, true);
 
-		menu->setTouchPriority(-507); // the right half of the button won't register on mobile because you end up tapping on the touchfix button
-		smallbutton->setTouchPriority(-506);
-		touchfixes->setTouchPriority(-505);
-		arrows->setTouchPriority(-505);
-		tabs->setTouchPriority(-505);
+		menu->setTouchPriority(-508);
+		smallbutton->setTouchPriority(-507);
+		touchfixes->setTouchPriority(-506);
+		arrows->setTouchPriority(-507);
+		tabs->setTouchPriority(-506);
 
 		// bg
 
@@ -68,9 +71,69 @@ using namespace geode::prelude;
 			menu_selector(NotepadLayer::onTouchFix)
 		);
 		touchfix->setPosition(screenSize/2 + CCPoint{0,170});
+		#ifdef GEODE_IS_WINDOWS
 		touchfix->setContentSize({385, 181});
+		#endif
+		#ifdef GEODE_IS_ANDROID
+		touchfix->setContentSize({385, 152});
+		#endif
+		#ifdef GEODE_IS_MACOS
+		touchfix->setContentSize({385, 181});
+		#endif
 		touchfixes->addChild(touchfix);
 		touchfix->setOpacity(0);
+
+		// Labels
+
+		auto first = CCLabelBMFont::create("1.", "bigFont.fnt");
+		first->setPosition(32, 206);
+		first->setScale(0.7f);
+		numlabels->addChild(first);
+ 
+		auto second = CCLabelBMFont::create("2.", "bigFont.fnt");
+		second->setPosition(32, 166);
+		second->setScale(0.7f);
+		numlabels->addChild(second);
+ 
+		auto third = CCLabelBMFont::create("3.", "bigFont.fnt");
+		third->setPosition(32, 126);
+		third->setScale(0.7f);
+		numlabels->addChild(third);
+ 
+		auto fourth = CCLabelBMFont::create("4.", "bigFont.fnt");
+		fourth->setPosition(32, 86);
+		fourth->setScale(0.7f);
+		numlabels->addChild(fourth);
+ 
+		auto fifth = CCLabelBMFont::create("5.", "bigFont.fnt");
+		fifth->setPosition(32, 46);
+		fifth->setScale(0.7f);
+		numlabels->addChild(fifth);
+ 
+		auto sixth = CCLabelBMFont::create("6.", "bigFont.fnt");
+		sixth->setPosition(32, 6);
+		sixth->setScale(0.7f);
+		numlabels->addChild(sixth);
+ 
+		auto seventh = CCLabelBMFont::create("7.", "bigFont.fnt");
+		seventh->setPosition(32, -34);
+		seventh->setScale(0.7f);
+		numlabels->addChild(seventh);
+ 
+		auto eighth = CCLabelBMFont::create("8.", "bigFont.fnt");
+		eighth->setPosition(32, -74);
+		eighth->setScale(0.7f);
+		numlabels->addChild(eighth);
+ 
+		auto ninth = CCLabelBMFont::create("9.", "bigFont.fnt");
+		ninth->setPosition(32, -114);
+		ninth->setScale(0.7f);
+		numlabels->addChild(ninth);
+ 
+		auto tenth = CCLabelBMFont::create("10.", "bigFont.fnt");
+		tenth->setPosition(32, -154);
+		tenth->setScale(0.7f);
+		numlabels->addChild(tenth);
 
 		// Tabs
 
@@ -219,7 +282,8 @@ using namespace geode::prelude;
 		// ScrollLayer
 
 		m_scroll = ScrollLayer::create({445,204.5f},true, true);
-		
+
+		m_scroll->m_contentLayer->addChild(numlabels);	
 		m_scroll->m_contentLayer->addChild(tab1);
 		m_scroll->m_contentLayer->addChild(tab2);
 		m_scroll->m_contentLayer->addChild(tab3);
@@ -248,6 +312,7 @@ using namespace geode::prelude;
 		tab3->setPositionY(99999);
 		tab4->setPositionY(99999);
 		tab5->setPositionY(99999);
+		numlabels->setPosition(screenSize/2 + CCPoint{0,181});
 
 		scrollbar->setScaleX(1.25f);
 
