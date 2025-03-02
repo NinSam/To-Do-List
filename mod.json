@@ -35,6 +35,12 @@
             "type": "title",
             "name": "Theme"
         },
+		"theme-presets": {
+            "type": "string",
+            "name": "Theme Presets",
+            "default": "Default",
+			"one-of": ["Default", "Blue", "Green", "Purple", "Gray"]
+        },
 		"custom-theme-enable": {
 			"type": "bool",
             "name": "Custom Theme",
