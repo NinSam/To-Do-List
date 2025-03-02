@@ -1,5 +1,4 @@
 #include "NotepadManager.hpp"
-#include <Geode/Geode.hpp>
 #include <Geode/ui/GeodeUI.hpp>
 
 using namespace geode::prelude;
@@ -60,6 +59,8 @@ using namespace geode::prelude;
 		tabs->setTouchPriority(-506);
 
 		// bg
+
+		const char* png;
 
 		if (themepresets == "Default"){
 			png = "GJ_square01.png";
