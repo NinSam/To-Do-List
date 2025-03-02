@@ -14,7 +14,6 @@ using namespace geode::prelude;
 		this->m_noElasticity = true;
 
 		auto screenSize = CCDirector::sharedDirector()->getWinSize();
-		auto themepresets = Mod::get()->getSettingValue<std::string>("theme-presets");
 		auto customcolortheme = Mod::get()->getSettingValue<ccColor3B>("custom-theme");
 	
 
@@ -60,27 +59,7 @@ using namespace geode::prelude;
 
 		// bg
 
-
-		if (themepresets == "Default"){
-			const char* png = "GJ_square01.png";
-			bg = CCScale9Sprite::create(png);
-		}
-		else if (themepresets == "Blue"){
-			const char* png = "GJ_square02.png";
-			bg = CCScale9Sprite::create(png);
-		}
-		else if (themepresets == "Green"){
-			const char* png = "GJ_square03.png";
-			bg = CCScale9Sprite::create(png);
-		}
-		else if (themepresets == "Purple"){
-			const char* png = "GJ_square04.png";
-			bg = CCScale9Sprite::create(png);
-		}
-		else if (themepresets == "Gray"){
-			const char* png = "GJ_square05.png";
-			bg = CCScale9Sprite::create(png);
-		}
+		auto bg = CCScale9Sprite::create("GJ_square01.png");	
 	    bg->setPosition(screenSize/2);
 		bg->setContentSize({466, 280});
 		m_mainLayer->addChild(bg);
