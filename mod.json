@@ -8,7 +8,7 @@
 	},
 	"id": "ninsam.to-do_list",
 	"name": "To-Do List",
-	"version": "v1.1.1",
+	"version": "v1.1.2",
 	"developer": "NinSam",
 	"description": "Adds a To-Do List in the GD editor",
 	"dependencies":{
@@ -31,6 +31,31 @@
     },
 	"settings":{
 
+		"title-1": {
+            "type": "title",
+            "name": "Theme"
+        },
+		"theme-presets": {
+            "type": "string",
+            "name": "Theme Presets",
+            "default": "Default",
+			"one-of": ["Default", "Blue", "Green", "Purple", "Gray"]
+        },
+		"custom-theme-enable": {
+			"type": "bool",
+            "name": "Custom Theme",
+            "default": false
+        },
+		"custom-theme": {
+			"type": "rgb",
+            "name": "Theme Color",
+			"default": "#5B5C5C",
+			"enable-if": "custom-theme-enable"
+        },
+		"title-2": {
+            "type": "title",
+            "name": "Other"
+        },
 		"button-color": {
             "type": "string",
             "name": "Button Color",

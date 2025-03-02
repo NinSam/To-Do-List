@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.2
+
+- Added Custom Themes
+
 ## v1.1.1
 
 - TouchPriority fixes for android
