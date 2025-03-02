@@ -60,28 +60,30 @@ using namespace geode::prelude;
 
 		// bg
 
-		const char* png;
 
 		if (themepresets == "Default"){
-			png = "GJ_square01.png";
+			const char* png = "GJ_square01.png";
+			bg = CCScale9Sprite::create(png);
 		}
 		else if (themepresets == "Blue"){
-			png = "GJ_square02.png";
+			const char* png = "GJ_square02.png";
+			bg = CCScale9Sprite::create(png);
 		}
 		else if (themepresets == "Green"){
-			png = "GJ_square03.png";
+			const char* png = "GJ_square03.png";
+			bg = CCScale9Sprite::create(png);
 		}
 		else if (themepresets == "Purple"){
-			png = "GJ_square04.png";
+			const char* png = "GJ_square04.png";
+			bg = CCScale9Sprite::create(png);
 		}
 		else if (themepresets == "Gray"){
-			png = "GJ_square05.png";
+			const char* png = "GJ_square05.png";
+			bg = CCScale9Sprite::create(png);
 		}
-
-		auto bg = CCScale9Sprite::create(png);
 	    bg->setPosition(screenSize/2);
 		bg->setContentSize({466, 280});
-		m_mainLayer->addChild(bg,-1);
+		m_mainLayer->addChild(bg);
 
 		if (Mod::get()->getSettingValue<bool>("custom-theme-enable")){
 
