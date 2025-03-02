@@ -5,7 +5,7 @@ using namespace geode::prelude;
 class NotepadLayer: public FLAlertLayer{
 protected:
 
-CCScale9Sprite* bg;
+const char* png;
 size_t m_clicked = 0;
 
 CCMenuItemSpriteExtra* m_page_5;

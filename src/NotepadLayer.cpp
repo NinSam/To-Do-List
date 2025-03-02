@@ -1,4 +1,5 @@
 #include "NotepadManager.hpp"
+#include <Geode/Geode.hpp>
 #include <Geode/ui/GeodeUI.hpp>
 
 using namespace geode::prelude;
@@ -61,24 +62,25 @@ using namespace geode::prelude;
 		// bg
 
 		if (themepresets == "Default"){
-			bg = CCScale9Sprite::create("GJ_square01.png");
+			png = "GJ_square01.png";
 		}
 		else if (themepresets == "Blue"){
-			bg = CCScale9Sprite::create("GJ_square02.png");
+			png = "GJ_square02.png";
 		}
 		else if (themepresets == "Green"){
-			bg = CCScale9Sprite::create("GJ_square03.png");
+			png = "GJ_square03.png";
 		}
 		else if (themepresets == "Purple"){
-			bg = CCScale9Sprite::create("GJ_square04.png");
+			png = "GJ_square04.png";
 		}
 		else if (themepresets == "Gray"){
-			bg = CCScale9Sprite::create("GJ_square05.png");
+			png = "GJ_square05.png";
 		}
-	
+
+		auto bg = CCScale9Sprite::create(png);
 	    bg->setPosition(screenSize/2);
 		bg->setContentSize({466, 280});
-		m_mainLayer->addChild(bg);
+		m_mainLayer->addChild(bg,-1);
 
 		if (Mod::get()->getSettingValue<bool>("custom-theme-enable")){
 
