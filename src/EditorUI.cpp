@@ -16,56 +16,37 @@ class $modify(MyNotepadLayer, EditorUI) {
 		return false;
 
 		auto buttoncolor = Mod::get()->getSettingValue<std::string>("button-color");
+		const char* png;
 
 		if (buttoncolor == "Default"){
-
-			CCSprite* spr = CCSprite::create("notepad.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad.png"_spr;
 		}
 		else if (buttoncolor == "Red"){
-			CCSprite* spr = CCSprite::create("notepad_red.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad_red.png"_spr;
 		}
 		else if (buttoncolor == "Orange"){
-
-			CCSprite* spr = CCSprite::create("notepad_orange.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad_orange.png"_spr;
 		}
 		else if (buttoncolor == "Yellow"){
-
-			CCSprite* spr = CCSprite::create("notepad_yellow.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad_yellow.png"_spr;
 		}
 		else if (buttoncolor == "Green"){
-
-			CCSprite* spr = CCSprite::create("notepad_green.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad_green.png"_spr;
 		}
 		else if (buttoncolor == "Blue"){
-
-			CCSprite* spr = CCSprite::create("notepad_blue.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad_blue.png"_spr;
 		}
 		else if (buttoncolor == "Purple"){
-
-			CCSprite* spr = CCSprite::create("notepad_purple.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad_purple.png"_spr;
 		}
 		else if (buttoncolor == "Pink"){
-
-			CCSprite* spr = CCSprite::create("notepad_pink.png"_spr);
-			m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-
+			png = "notepad_pink.png"_spr;
 		}
-		m_fields->notepadbutton->setID("To-Do List"_spr);
+
 		auto undomenu = getChildByID("undo-menu");
+		auto spr = CCSprite::create(png);
+		m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
+		m_fields->notepadbutton->setID("To-Do List"_spr);
 		undomenu->addChild(m_fields->notepadbutton);
 		undomenu->updateLayout();
 
@@ -77,6 +58,5 @@ class $modify(MyNotepadLayer, EditorUI) {
 	void showUI(bool show){
 		EditorUI::showUI(show);
 		m_fields->notepadbutton->setVisible(show);
-		
 	}
 };

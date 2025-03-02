@@ -80,7 +80,7 @@ using namespace geode::prelude;
 		auto bg = CCScale9Sprite::create(png);
 	    bg->setPosition(screenSize/2);
 		bg->setContentSize({466, 280});
-		m_mainLayer->addChild(bg,-1);
+		m_mainLayer->addChild(bg);
 
 		if (Mod::get()->getSettingValue<bool>("custom-theme-enable")){
 
@@ -302,7 +302,6 @@ using namespace geode::prelude;
 		
 		m_page_5 = page_5;
 		m_page_left = page_left;
-
 		m_page_1_fix = page_1_fix;
 
 		m_page_left->setVisible(false);
