@@ -2,7 +2,7 @@
 
 ## v1.1.3
 
-- Fixed culling issues with ScrollLayer from Geode 4.3.0
+- Fixed ScrollLayer culling issues from Geode 4.3.0
 
 ## v1.1.2
 
