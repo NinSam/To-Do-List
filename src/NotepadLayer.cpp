@@ -115,106 +115,106 @@ using namespace geode::prelude;
 		// Labels
 
 		auto first = CCLabelBMFont::create("1.", "bigFont.fnt");
-		first->setPosition(32, 206);
+		first->setPosition(32, 236);
 		first->setScale(0.7f);
 		numlabels->addChild(first);
  
 		auto second = CCLabelBMFont::create("2.", "bigFont.fnt");
-		second->setPosition(32, 166);
+		second->setPosition(32, 196);
 		second->setScale(0.7f);
 		numlabels->addChild(second);
  
 		auto third = CCLabelBMFont::create("3.", "bigFont.fnt");
-		third->setPosition(32, 126);
+		third->setPosition(32, 156);
 		third->setScale(0.7f);
 		numlabels->addChild(third);
  
 		auto fourth = CCLabelBMFont::create("4.", "bigFont.fnt");
-		fourth->setPosition(32, 86);
+		fourth->setPosition(32, 116);
 		fourth->setScale(0.7f);
 		numlabels->addChild(fourth);
  
 		auto fifth = CCLabelBMFont::create("5.", "bigFont.fnt");
-		fifth->setPosition(32, 46);
+		fifth->setPosition(32, 76);
 		fifth->setScale(0.7f);
 		numlabels->addChild(fifth);
  
 		auto sixth = CCLabelBMFont::create("6.", "bigFont.fnt");
-		sixth->setPosition(32, 6);
+		sixth->setPosition(32, 36);
 		sixth->setScale(0.7f);
 		numlabels->addChild(sixth);
  
 		auto seventh = CCLabelBMFont::create("7.", "bigFont.fnt");
-		seventh->setPosition(32, -34);
+		seventh->setPosition(32, -4);
 		seventh->setScale(0.7f);
 		numlabels->addChild(seventh);
  
 		auto eighth = CCLabelBMFont::create("8.", "bigFont.fnt");
-		eighth->setPosition(32, -74);
+		eighth->setPosition(32, -44);
 		eighth->setScale(0.7f);
 		numlabels->addChild(eighth);
  
 		auto ninth = CCLabelBMFont::create("9.", "bigFont.fnt");
-		ninth->setPosition(32, -114);
+		ninth->setPosition(32, -84);
 		ninth->setScale(0.7f);
 		numlabels->addChild(ninth);
  
 		auto tenth = CCLabelBMFont::create("10.", "bigFont.fnt");
-		tenth->setPosition(32, -154);
+		tenth->setPosition(32, -124);
 		tenth->setScale(0.7f);
 		numlabels->addChild(tenth);
 
 		// Tabs
 
-		TextInput* inputname_1 = TextInput::create(100,"1/5","bigFont.fnt");
-		inputname_1->setPosition(screenSize/2 + CCPoint{0, 108});
-		inputname_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-1-tab-1", "")));
-		inputname_1->setCallback([this](std::string const& str){
+		m_inputname_1 = TextInput::create(100,"1/5","bigFont.fnt");
+		m_inputname_1->setPosition(screenSize/2 + CCPoint{0, 108});
+		m_inputname_1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-1-tab-1", "")));
+		m_inputname_1->setCallback([this](std::string const& str){
 
         (Mod::get()->setSavedValue<std::string>("input-name-1-tab-1", str));
 		
 		});
-		tabs->addChild(inputname_1);
+		tabs->addChild(m_inputname_1);
 
-		TextInput* inputname_2 = TextInput::create(100,"2/5","bigFont.fnt");
-		inputname_2->setPosition(screenSize/2 + CCPoint{0, 108});
-		inputname_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-2-tab-2", "")));
-		inputname_2->setCallback([this](std::string const& str){
+		m_inputname_2 = TextInput::create(100,"2/5","bigFont.fnt");
+		m_inputname_2->setPosition(screenSize/2 + CCPoint{0, 108});
+		m_inputname_2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-2-tab-2", "")));
+		m_inputname_2->setCallback([this](std::string const& str){
 
         (Mod::get()->setSavedValue<std::string>("input-name-2-tab-2", str));
 		
 		});
-		tabs->addChild(inputname_2);
+		tabs->addChild(m_inputname_2);
 
-		TextInput* inputname_3 = TextInput::create(100,"3/5","bigFont.fnt");
-		inputname_3->setPosition(screenSize/2 + CCPoint{0, 108});
-		inputname_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-3-tab-3", "")));
-		inputname_3->setCallback([this](std::string const& str){
+		m_inputname_3 = TextInput::create(100,"3/5","bigFont.fnt");
+		m_inputname_3->setPosition(screenSize/2 + CCPoint{0, 108});
+		m_inputname_3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-3-tab-3", "")));
+		m_inputname_3->setCallback([this](std::string const& str){
 
         (Mod::get()->setSavedValue<std::string>("input-name-3-tab-3", str));
 		
 		});
-		tabs->addChild(inputname_3);
+		tabs->addChild(m_inputname_3);
 
-		TextInput* inputname_4 = TextInput::create(100,"4/5","bigFont.fnt");
-		inputname_4->setPosition(screenSize/2 + CCPoint{0, 108});
-		inputname_4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-4-tab-4", "")));
-		inputname_4->setCallback([this](std::string const& str){
+		m_inputname_4 = TextInput::create(100,"4/5","bigFont.fnt");
+		m_inputname_4->setPosition(screenSize/2 + CCPoint{0, 108});
+		m_inputname_4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-4-tab-4", "")));
+		m_inputname_4->setCallback([this](std::string const& str){
 
         (Mod::get()->setSavedValue<std::string>("input-name-4-tab-4", str));
 		
 		});
-		tabs->addChild(inputname_4);
+		tabs->addChild(m_inputname_4);
 
-		TextInput* inputname_5 = TextInput::create(100,"5/5","bigFont.fnt");
-		inputname_5->setPosition(screenSize/2 + CCPoint{0, 108});
-		inputname_5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-5-tab-5", "")));
-		inputname_5->setCallback([this](std::string const& str){
+		m_inputname_5 = TextInput::create(100,"5/5","bigFont.fnt");
+		m_inputname_5->setPosition(screenSize/2 + CCPoint{0, 108});
+		m_inputname_5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>("input-name-5-tab-5", "")));
+		m_inputname_5->setCallback([this](std::string const& str){
 
         (Mod::get()->setSavedValue<std::string>("input-name-5-tab-5", str));
 		
 		});
-		tabs->addChild(inputname_5);
+		tabs->addChild(m_inputname_5);
 
 		// outline
 
@@ -246,33 +246,33 @@ using namespace geode::prelude;
 
 		// Tabs
 
-		CCMenuItemSpriteExtra* page_5 = CCMenuItemSpriteExtra::create(
+		m_page_5 = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("edit_leftBtn_001.png"),
 			this,
 			menu_selector(NotepadLayer::onPage)
 		);
-		arrows->addChild(page_5);
-		page_5->setTag(4);
-		page_5->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
+		arrows->addChild(m_page_5);
+		m_page_5->setTag(4);
+		m_page_5->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
 
-		CCMenuItemSpriteExtra* page_1_fix = CCMenuItemSpriteExtra::create(
+		m_page_1_fix = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("edit_leftBtn_001.png"),
 			this,
 			menu_selector(NotepadLayer::onPage)
 		);
-		arrows->addChild(page_1_fix);
-		page_1_fix->setTag(-2);
-		page_1_fix->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
+		arrows->addChild(m_page_1_fix);
+		m_page_1_fix->setTag(-2);
+		m_page_1_fix->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
 
 
-		CCMenuItemSpriteExtra* page_left = CCMenuItemSpriteExtra::create(
+		m_page_left = CCMenuItemSpriteExtra::create(
 			CCSprite::createWithSpriteFrameName("edit_leftBtn_001.png"),
 			this,
 			menu_selector(NotepadLayer::onPage)
 		);
-		arrows->addChild(page_left);
-		page_left->setTag(-1);
-		page_left->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
+		arrows->addChild(m_page_left);
+		m_page_left->setTag(-1);
+		m_page_left->setPosition(screenSize/2 + CCPoint{-63.5f, 108});
 
 		CCMenuItemSpriteExtra* page_right = CCMenuItemSpriteExtra::create(
             CCSprite::createWithSpriteFrameName("edit_rightBtn_001.png"),
@@ -283,40 +283,30 @@ using namespace geode::prelude;
         page_right->setTag(1);
         arrows->addChild(page_right);
 
-		auto tab1 = Tab1::create();
-		auto tab2 = Tab2::create();
-		auto tab3 = Tab3::create();
-		auto tab4 = Tab4::create();
-		auto tab5 = Tab5::create();
+		m_page1 = Tab1::create();
+		m_page2 = Tab2::create();
+		m_page3 = Tab3::create();
+		m_page4 = Tab4::create();
+		m_page5 = Tab5::create();
 
-		inputname_2->setVisible(false);
-		inputname_3->setVisible(false);
-		inputname_4->setVisible(false);
-		inputname_5->setVisible(false);
-
-		m_inputname_1 = inputname_1;
-		m_inputname_2 = inputname_2;
-		m_inputname_3 = inputname_3;
-		m_inputname_4 = inputname_4;
-		m_inputname_5 = inputname_5;
-		
-		m_page_5 = page_5;
-		m_page_left = page_left;
-		m_page_1_fix = page_1_fix;
+		m_inputname_2->setVisible(false);
+		m_inputname_3->setVisible(false);
+		m_inputname_4->setVisible(false);
+		m_inputname_5->setVisible(false);
 
 		m_page_left->setVisible(false);
-		page_1_fix->setVisible(false);
+		m_page_1_fix->setVisible(false);
 
 		// ScrollLayer
 
 		m_scroll = ScrollLayer::create({445,204.5f},true, true);
 
 		m_scroll->m_contentLayer->addChild(numlabels);	
-		m_scroll->m_contentLayer->addChild(tab1);
-		m_scroll->m_contentLayer->addChild(tab2);
-		m_scroll->m_contentLayer->addChild(tab3);
-		m_scroll->m_contentLayer->addChild(tab4);
-		m_scroll->m_contentLayer->addChild(tab5);
+		m_scroll->m_contentLayer->addChild(m_page1);
+		m_scroll->m_contentLayer->addChild(m_page2);
+		m_scroll->m_contentLayer->addChild(m_page3);
+		m_scroll->m_contentLayer->addChild(m_page4);
+		m_scroll->m_contentLayer->addChild(m_page5);
 		m_scroll->m_contentLayer->setLayout(
 
 			ColumnLayout::create()
@@ -325,32 +315,27 @@ using namespace geode::prelude;
 			->setAutoGrowAxis(500)
 
 		);
-		
 		m_scroll->m_contentLayer->setPositionY(-208);
 		m_scroll->m_contentLayer->setContentHeight(412.5f);
 		m_scroll->setPosition(screenSize/2 + CCPoint{-230.5f, -125});
 		m_mainLayer->addChild(m_scroll);
+		
+		numlabels->setVisible(true);
+		m_page1->setVisible(true);
 
 		auto scrollbar = Scrollbar::create(m_scroll);
 		scrollbar->setPosition(screenSize/2 + CCPoint{220, -28});
 		m_mainLayer->addChild(scrollbar);
 
-		tab1->setPosition(screenSize/2 + CCPoint{0, 181});
-		tab2->setPositionY(99999);
-		tab3->setPositionY(99999);
-		tab4->setPositionY(99999);
-		tab5->setPositionY(99999);
-		numlabels->setPosition(screenSize/2 + CCPoint{0,181});
+		m_page1->setPosition(screenSize/2 + CCPoint{0, 151});
+		m_page2->setPositionY(99999);
+		m_page3->setPositionY(99999);
+		m_page4->setPositionY(99999);
+		m_page5->setPositionY(99999);
+		numlabels->setPosition(screenSize/2 + CCPoint{0,151});
 
 		scrollbar->setScaleX(1.25f);
 
-		m_page1 = tab1;
-		m_page2 = tab2;
-		m_page3 = tab3;
-		m_page4 = tab4;
-		m_page5 = tab5;
-
-		
 		m_mainLayer->setTouchEnabled(true);
 		m_mainLayer->updateLayout();
 		
@@ -376,7 +361,7 @@ using namespace geode::prelude;
 		// there's definitely a better way but this works for now I spent way too much time on this.
 
 			if (m_clicked > 0){
-				m_page2->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_page2->setPosition(screenSize/2 + CCPoint{0, 151});
 				m_scroll->scrollToTop();
 				m_page2->setVisible(true);
 				m_page1->setPositionY(99999);
@@ -395,7 +380,7 @@ using namespace geode::prelude;
 				
 			}
 			if (m_clicked > 1){
-				m_page3->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_page3->setPosition(screenSize/2 + CCPoint{0, 151});
 				m_scroll->scrollToTop();
 				m_page3->setVisible(true);
 				m_page2->setPositionY(99999);
@@ -413,7 +398,7 @@ using namespace geode::prelude;
 				
 			}
 			if (m_clicked > 2){
-				m_page4->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_page4->setPosition(screenSize/2 + CCPoint{0, 151});
 				m_scroll->scrollToTop();
 				m_page4->setVisible(true);
 				m_page3->setPositionY(99999);
@@ -428,7 +413,7 @@ using namespace geode::prelude;
 
 			}
 			if (m_clicked > 3){
-				m_page5->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_page5->setPosition(screenSize/2 + CCPoint{0, 151});
 				m_scroll->scrollToTop();
 				m_page5->setVisible(true);
 				m_page4->setPositionY(99999);
@@ -445,7 +430,7 @@ using namespace geode::prelude;
 				
 			}
 			if (m_clicked > 4){
-				m_page1->setPosition(screenSize/2 + CCPoint{0, 181});
+				m_page1->setPosition(screenSize/2 + CCPoint{0, 151});
 				m_scroll->scrollToTop();
 				m_page1->setVisible(true);
 				m_page5->setPositionY(99999);

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.3
+
+- Fixed culling issues with ScrollLayer from Geode 4.3.0
+
 ## v1.1.2
 
 - Added Custom Themes
