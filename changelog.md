@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.4
+
+- Added iOS support (experimental)
+
 ## v1.1.3
 
 - Fixed ScrollLayer culling issues from Geode 4.3.0
