@@ -2,7 +2,7 @@
 
 ## v1.1.4
 
-- Added iOS support (experimental)
+- Added iOS support
 
 ## v1.1.3
 
