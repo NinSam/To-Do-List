@@ -348,11 +348,11 @@ using namespace geode::prelude;
 
 	Tab1* Tab1::create(){
 		auto ret = new Tab1;
-		if (ret && ret->init()){
+		if (ret->init()){
 
 			ret->autorelease();
 			return ret;
 		}
-		delete ret;
+		CC_SAFE_DELETE(ret);
 		return nullptr;
-	}
+	};

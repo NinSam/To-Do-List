@@ -328,11 +328,11 @@ using namespace geode::prelude;
 
 	Tab2* Tab2::create(){
 		auto ret = new Tab2;
-		if (ret && ret->init()){
+		if (ret->init()){
 
 			ret->autorelease();
 			return ret;
 		}
-		delete ret;
+		CC_SAFE_DELETE(ret);
 		return nullptr;
 	}

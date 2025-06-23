@@ -452,11 +452,11 @@ using namespace geode::prelude;
 
 	NotepadLayer* NotepadLayer::create(){
 		auto ret = new NotepadLayer;
-		if (ret && ret->setup()){
+		if (ret->setup()){
 
 			ret->autorelease();
 			return ret;
 		}
-		delete ret;
+		CC_SAFE_DELETE(ret);
 		return nullptr;
 	}

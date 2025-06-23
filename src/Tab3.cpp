@@ -327,11 +327,11 @@ using namespace geode::prelude;
 
 	Tab3* Tab3::create(){
 		auto ret = new Tab3;
-		if (ret && ret->init()){
+		if (ret->init()){
 
 			ret->autorelease();
 			return ret;
 		}
-		delete ret;
+		CC_SAFE_DELETE(ret);
 		return nullptr;
 	}
