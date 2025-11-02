@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.1.6
+
+- You can now use custom colors for the notepad button
+- Added three more theme presets
+- Optimized NotepadLayer
+- Changed some UI elements
+- TouchPriority fixes for iOS
+
 ## v1.1.5
 
 - Added iOS Jitless support

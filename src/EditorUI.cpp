@@ -1,6 +1,5 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/EditorUI.hpp>
-#include <Geode/modify/LevelEditorLayer.hpp>
 #include "NotepadManager.hpp"
 
 using namespace geode::prelude;
@@ -8,55 +7,71 @@ using namespace geode::prelude;
 class $modify(MyNotepadLayer, EditorUI) {
 
 	struct Fields{
-		CCMenuItemSpriteExtra* notepadbutton;
+		CCMenuItemSpriteExtra* notepadButton;
 	};
+	
 	bool init(LevelEditorLayer* p0) {	
 		if (!EditorUI::init(p0)) 
-
 		return false;
 
-		auto buttoncolor = Mod::get()->getSettingValue<std::string>("button-color");
-		const char* png;
+		auto customButtonColor = Mod::get()->getSettingValue<ccColor3B>("custom-button-color");
+		auto buttonColorPresets = Mod::get()->getSettingValue<std::string>("button-color-presets");
 
-		if (buttoncolor == "Default"){
-			png = "notepad.png"_spr;
+		auto undoMenu = getChildByID("undo-menu");
+		auto spr = CCSprite::create("notepad_btn.png"_spr);
+
+		m_fields->notepadButton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::onNotepadButton));
+		m_fields->notepadButton->setID("To-Do List"_spr);
+		undoMenu->addChild(m_fields->notepadButton);
+
+		spr->setPositionY(17.875f);
+		spr->setZOrder(1);
+
+		auto circle = CCSprite::createWithSpriteFrameName("d_circle_02_001.png");
+		circle->setPosition({18,18});
+		circle->setScale(0.675f);
+
+		if (buttonColorPresets == "Default"){
+			circle->setColor(ccc3(65, 222, 255));
 		}
-		else if (buttoncolor == "Red"){
-			png = "notepad_red.png"_spr;
+		else if (buttonColorPresets == "Red"){
+			circle->setColor(ccc3(255, 58, 19));
 		}
-		else if (buttoncolor == "Orange"){
-			png = "notepad_orange.png"_spr;
+		else if (buttonColorPresets == "Orange"){
+			circle->setColor(ccc3(255, 134, 36));
 		}
-		else if (buttoncolor == "Yellow"){
-			png = "notepad_yellow.png"_spr;
+		else if (buttonColorPresets == "Yellow"){
+			circle->setColor(ccc3(255, 231, 65));
 		}
-		else if (buttoncolor == "Green"){
-			png = "notepad_green.png"_spr;
+		else if (buttonColorPresets == "Green"){
+			circle->setColor(ccc3(65, 255, 88));
 		}
-		else if (buttoncolor == "Blue"){
-			png = "notepad_blue.png"_spr;
+		else if (buttonColorPresets == "Blue"){
+			circle->setColor(ccc3(37, 140, 255));
 		}
-		else if (buttoncolor == "Purple"){
-			png = "notepad_purple.png"_spr;
+		else if (buttonColorPresets == "Purple"){
+			circle->setColor(ccc3(114, 66, 255));
 		}
-		else if (buttoncolor == "Pink"){
-			png = "notepad_pink.png"_spr;
+		else if (buttonColorPresets == "Pink"){
+			circle->setColor(ccc3(255, 65, 247));
+		}
+		if (Mod::get()->getSettingValue<bool>("custom-button-color-enable")){
+			circle->setColor(customButtonColor);
 		}
 
-		auto undomenu = getChildByID("undo-menu");
-		auto spr = CCSprite::create(png);
-		m_fields->notepadbutton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::Onnotepadbutton));
-		m_fields->notepadbutton->setID("To-Do List"_spr);
-		undomenu->addChild(m_fields->notepadbutton);
-		undomenu->updateLayout();
+		m_fields->notepadButton->addChild(circle);
+
+		undoMenu->updateLayout();
 
 		return true;
 	}
-	void Onnotepadbutton(CCObject*) {
+
+	void onNotepadButton(CCObject*) {
 		NotepadLayer::create()->show();
 	}
+
 	void showUI(bool show){
 		EditorUI::showUI(show);
-		m_fields->notepadbutton->setVisible(show);
+		m_fields->notepadButton->setVisible(show);
 	}
 };

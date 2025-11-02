@@ -2,14 +2,14 @@
 
 using namespace geode::prelude;
 
-class NotepadLayer: public FLAlertLayer{
+class NotepadLayer: public geode::Popup<>{
 protected:
 
-size_t m_clicked = 0;
+const char* m_savedValue = "input-name-1-tab-1";
 
-CCMenuItemSpriteExtra* m_page_5;
-CCMenuItemSpriteExtra* m_page_1_fix;
-CCMenuItemSpriteExtra* m_page_left;
+size_t m_page = 0;
+
+CCMenuItemSpriteExtra* m_pageLeft;
 
 CCLayer* m_page1;
 CCLayer* m_page2;
@@ -19,18 +19,13 @@ CCLayer* m_page5;
 
 ScrollLayer* m_scroll;
 
-TextInput* m_inputname_1;
-TextInput* m_inputname_2;
-TextInput* m_inputname_3;
-TextInput* m_inputname_4;
-TextInput* m_inputname_5;
+TextInput* m_inputName;
 
 bool setup();
 
-void Close(CCObject* sender);
 void OpenSettings(CCObject*);
-void onPage(CCObject* sender);
-void onTouchFix(CCObject* sender);
+void onPage(CCObject*);
+void onTouchFix(CCObject*);
 
 public:
    static NotepadLayer* create();
@@ -41,16 +36,16 @@ protected:
 
 bool init();
 
-void SaveCheckbox(CCObject* sender);
-void SaveCheckbox2(CCObject* sender);
-void SaveCheckbox3(CCObject* sender);
-void SaveCheckbox4(CCObject* sender);
-void SaveCheckbox5(CCObject* sender);
-void SaveCheckbox6(CCObject* sender);
-void SaveCheckbox7(CCObject* sender);
-void SaveCheckbox8(CCObject* sender);
-void SaveCheckbox9(CCObject* sender);
-void SaveCheckbox10(CCObject* sender);
+void SaveCheckbox(CCObject*);
+void SaveCheckbox2(CCObject*);
+void SaveCheckbox3(CCObject*);
+void SaveCheckbox4(CCObject*);
+void SaveCheckbox5(CCObject*);
+void SaveCheckbox6(CCObject*);
+void SaveCheckbox7(CCObject*);
+void SaveCheckbox8(CCObject*);
+void SaveCheckbox9(CCObject*);
+void SaveCheckbox10(CCObject*);
 
 public:
    static Tab1* create();
@@ -61,16 +56,16 @@ protected:
 
 bool init();
 
-void SaveCheckbox(CCObject* sender);
-void SaveCheckbox2(CCObject* sender);
-void SaveCheckbox3(CCObject* sender);
-void SaveCheckbox4(CCObject* sender);
-void SaveCheckbox5(CCObject* sender);
-void SaveCheckbox6(CCObject* sender);
-void SaveCheckbox7(CCObject* sender);
-void SaveCheckbox8(CCObject* sender);
-void SaveCheckbox9(CCObject* sender);
-void SaveCheckbox10(CCObject* sender);
+void SaveCheckbox(CCObject*);
+void SaveCheckbox2(CCObject*);
+void SaveCheckbox3(CCObject*);
+void SaveCheckbox4(CCObject*);
+void SaveCheckbox5(CCObject*);
+void SaveCheckbox6(CCObject*);
+void SaveCheckbox7(CCObject*);
+void SaveCheckbox8(CCObject*);
+void SaveCheckbox9(CCObject*);
+void SaveCheckbox10(CCObject*);
 
 public:
    static Tab2* create();
@@ -81,16 +76,16 @@ protected:
 
 bool init();
 
-void SaveCheckbox(CCObject* sender);
-void SaveCheckbox2(CCObject* sender);
-void SaveCheckbox3(CCObject* sender);
-void SaveCheckbox4(CCObject* sender);
-void SaveCheckbox5(CCObject* sender);
-void SaveCheckbox6(CCObject* sender);
-void SaveCheckbox7(CCObject* sender);
-void SaveCheckbox8(CCObject* sender);
-void SaveCheckbox9(CCObject* sender);
-void SaveCheckbox10(CCObject* sender);
+void SaveCheckbox(CCObject*);
+void SaveCheckbox2(CCObject*);
+void SaveCheckbox3(CCObject*);
+void SaveCheckbox4(CCObject*);
+void SaveCheckbox5(CCObject*);
+void SaveCheckbox6(CCObject*);
+void SaveCheckbox7(CCObject*);
+void SaveCheckbox8(CCObject*);
+void SaveCheckbox9(CCObject*);
+void SaveCheckbox10(CCObject*);
 
 public:
    static Tab3* create();
@@ -101,16 +96,16 @@ protected:
 
 bool init();
 
-void SaveCheckbox(CCObject* sender);
-void SaveCheckbox2(CCObject* sender);
-void SaveCheckbox3(CCObject* sender);
-void SaveCheckbox4(CCObject* sender);
-void SaveCheckbox5(CCObject* sender);
-void SaveCheckbox6(CCObject* sender);
-void SaveCheckbox7(CCObject* sender);
-void SaveCheckbox8(CCObject* sender);
-void SaveCheckbox9(CCObject* sender);
-void SaveCheckbox10(CCObject* sender);
+void SaveCheckbox(CCObject*);
+void SaveCheckbox2(CCObject*);
+void SaveCheckbox3(CCObject*);
+void SaveCheckbox4(CCObject*);
+void SaveCheckbox5(CCObject*);
+void SaveCheckbox6(CCObject*);
+void SaveCheckbox7(CCObject*);
+void SaveCheckbox8(CCObject*);
+void SaveCheckbox9(CCObject*);
+void SaveCheckbox10(CCObject*);
 
 public:
    static Tab4* create();
@@ -121,16 +116,16 @@ protected:
 
 bool init();
 
-void SaveCheckbox(CCObject* sender);
-void SaveCheckbox2(CCObject* sender);
-void SaveCheckbox3(CCObject* sender);
-void SaveCheckbox4(CCObject* sender);
-void SaveCheckbox5(CCObject* sender);
-void SaveCheckbox6(CCObject* sender);
-void SaveCheckbox7(CCObject* sender);
-void SaveCheckbox8(CCObject* sender);
-void SaveCheckbox9(CCObject* sender);
-void SaveCheckbox10(CCObject* sender);
+void SaveCheckbox(CCObject*);
+void SaveCheckbox2(CCObject*);
+void SaveCheckbox3(CCObject*);
+void SaveCheckbox4(CCObject*);
+void SaveCheckbox5(CCObject*);
+void SaveCheckbox6(CCObject*);
+void SaveCheckbox7(CCObject*);
+void SaveCheckbox8(CCObject*);
+void SaveCheckbox9(CCObject*);
+void SaveCheckbox10(CCObject*);
 
 public:
    static Tab5* create();

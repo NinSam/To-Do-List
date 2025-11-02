@@ -1,5 +1,5 @@
 {
-	"geode": "4.6.1",
+	"geode": "4.9.0",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -8,7 +8,7 @@
 	},
 	"id": "ninsam.to-do_list",
 	"name": "To-Do List",
-	"version": "v1.1.5",
+	"version": "v1.1.6",
 	"developer": "NinSam",
 	"description": "Adds a To-Do List in the GD editor",
 	"dependencies":{
@@ -27,7 +27,7 @@
 		"source": "https://github.com/NinSam/To-Do-List"
 	},
 	"resources": {
-		"sprites":["resources/*.png"]
+		"sprites":["resources/notepad_btn.png"]
     },
 	"settings":{
 
@@ -39,7 +39,7 @@
             "type": "string",
             "name": "Theme Presets",
             "default": "Default",
-			"one-of": ["Default", "Blue", "Green", "Purple", "Gray"]
+			"one-of": ["Default", "Blue", "Green", "Purple", "Gray", "Geode Theme Color 1", "Geode Theme Color 2", "Geode Theme Color 3"]
         },
 		"custom-theme-enable": {
 			"type": "bool",
@@ -49,18 +49,31 @@
 		"custom-theme": {
 			"type": "rgb",
             "name": "Theme Color",
-			"default": "#5B5C5C",
+			"default": "#5C5C5C",
+			"description": "Change the color of the background",
 			"enable-if": "custom-theme-enable"
         },
 		"title-2": {
             "type": "title",
-            "name": "Other"
+            "name": "Notepad Button Color"
         },
-		"button-color": {
+		"button-color-presets": {
             "type": "string",
-            "name": "Button Color",
+            "name": "Button Color Presets",
             "default": "Default",
 			"one-of": ["Default", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink"]
+        },
+		"custom-button-color-enable": {
+			"type": "bool",
+            "name": "Custom Button Color",
+            "default": false
+        },
+		"custom-button-color": {
+			"type": "rgb",
+            "name": "Button Color",
+			"description": "Change the color of the notepad button (requires exiting & re-entering the editor to take effect)",
+			"default": "#5C5C5C",
+			"enable-if": "custom-button-color-enable"
         }
 	
 	}
