@@ -349,6 +349,6 @@ Tab1* Tab1::create(){
 		ret->autorelease();
 		return ret;
 	}
-	CC_SAFE_DELETE(ret);
+	delete ret;
 	return nullptr;
 };

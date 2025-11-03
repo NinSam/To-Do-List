@@ -33,6 +33,7 @@
 
 		"title-1": {
             "type": "title",
+			"description": "Change the theme color of the background",
             "name": "Theme"
         },
 		"theme-presets": {
@@ -50,11 +51,11 @@
 			"type": "rgb",
             "name": "Theme Color",
 			"default": "#5C5C5C",
-			"description": "Change the color of the background",
 			"enable-if": "custom-theme-enable"
         },
 		"title-2": {
             "type": "title",
+			"description": "Change the color of the notepad button. <cr>Requires re-entering the editor to take effect!</c>",
             "name": "Notepad Button Color"
         },
 		"button-color-presets": {
@@ -71,7 +72,6 @@
 		"custom-button-color": {
 			"type": "rgb",
             "name": "Button Color",
-			"description": "Change the color of the notepad button (requires exiting & re-entering the editor to take effect)",
 			"default": "#5C5C5C",
 			"enable-if": "custom-button-color-enable"
         }

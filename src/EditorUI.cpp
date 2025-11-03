@@ -24,12 +24,12 @@ class $modify(MyNotepadLayer, EditorUI) {
 		m_fields->notepadButton->setID("To-Do List"_spr);
 		undoMenu->addChild(m_fields->notepadButton);
 
-		spr->setPositionY(17.875f);
+		spr->setPositionY(17.5f);
 		spr->setZOrder(1);
 
 		auto circle = CCSprite::createWithSpriteFrameName("d_circle_02_001.png");
-		circle->setPosition({18,18});
-		circle->setScale(0.675f);
+		circle->setPosition({17.5f, 18.5f});
+		circle->setScale(0.65f);
 
 		if (buttonColorPresets == "Default"){
 			circle->setColor(ccc3(65, 222, 255));

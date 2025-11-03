@@ -23,11 +23,11 @@ bool NotepadLayer::setup(){
 	numLabels->setID("numbers");
 
 	m_mainLayer->addChild(touchFixes, 1);
-	touchFixes->setPosition(-51, -15);
+	touchFixes->setPosition(-64, -19.0f);
 	touchFixes->setID("touch-fixes");
 
 	m_mainLayer->addChild(pageMenu, 1);
-	pageMenu->setPosition(-51.5f, -20);
+	pageMenu->setPosition(-64.5f, -22.9f);
 	pageMenu->setID("page-menu");
 
 	m_buttonMenu->setTouchPriority(-507);
@@ -64,26 +64,26 @@ bool NotepadLayer::setup(){
 	}
 
     m_bgSprite->initWithFile(png);
-   	m_bgSprite->setContentSize({466.0f, 280.0f});
+   	m_bgSprite->setContentSize({440.0f, 280.0f});
 
     if (Mod::get()->getSettingValue<bool>("custom-theme-enable")){
 
        	auto bgoutline = CCScale9Sprite::create("GJ_square07.png");
-	    bgoutline->setContentSize({466.0f, 280.0f});
+	    bgoutline->setContentSize({440.0f, 280.0f});
 
 		m_bgSprite->initWithFile("GJ_square06.png"); 
 		m_bgSprite->setColor(customColorTheme);
-        m_bgSprite->setContentSize({466.0f, 280.0f});
+        m_bgSprite->setContentSize({440.0f, 280.0f});
         m_bgSprite->addChildAtPosition(bgoutline, Anchor::Center);
 
 	}
 
-	// outline
+	// ScrollLayer bg
 
 	auto bg = CCScale9Sprite::create("square02_001.png");
-	bg->setPosition(226, 116.1f);
+	bg->setPosition(211.2f, 118.1f);
 	bg->setOpacity(75);
-	bg->setContentSize({420, 204.3f});
+	bg->setContentSize({399, 194.1f});
 	m_mainLayer->addChild(bg);
 
 	// touch fix
@@ -158,7 +158,17 @@ bool NotepadLayer::setup(){
 	tenth->setScale(0.6f);
 	numLabels->addChild(tenth);
 
-	// TextInput
+	// Settings
+
+	auto settingsspr = CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png");
+	settingsspr->setScale(0.6f);
+
+	auto openSettings = CCMenuItemSpriteExtra::create(settingsspr, this, menu_selector(NotepadLayer::OpenSettings));
+	m_buttonMenu->addChild(openSettings);
+	openSettings->setID("settings");
+	openSettings->setPosition(411, 254);
+
+	// pageMenu
 
 	m_inputName = TextInput::create(100, "1/5", "bigFont.fnt");
 	m_inputName->setPosition(284.5f, 268);
@@ -170,27 +180,15 @@ bool NotepadLayer::setup(){
 	});
 	pageMenu->addChild(m_inputName);
 
-	// Buttons
-
-	auto settingsspr = CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png");
-	settingsspr->setScale(0.6f);
-
-	auto opensettings = CCMenuItemSpriteExtra::create(settingsspr, this, menu_selector(NotepadLayer::OpenSettings));
-	m_buttonMenu->addChild(opensettings);
-	opensettings->setID("settings");
-	opensettings->setPosition(437, 254);
-
-	// pageMenu
-
 	m_pageLeft = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("edit_leftBtn_001.png"), this, menu_selector(NotepadLayer::onPage));
 	pageMenu->addChild(m_pageLeft);
 	m_pageLeft->setTag(4);
 	m_pageLeft->setPosition(221.0f, 268.0f);
 
-	auto page_right = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("edit_rightBtn_001.png"), this, menu_selector(NotepadLayer::onPage));
-	page_right->setPosition(348.0f, 268.0f);
-    page_right->setTag(1);
-    pageMenu->addChild(page_right);
+	auto pageRight = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("edit_rightBtn_001.png"), this, menu_selector(NotepadLayer::onPage));
+	pageRight->setPosition(348.0f, 268.0f);
+    pageRight->setTag(1);
+    pageMenu->addChild(pageRight);
 
 	m_page1 = Tab1::create();
 	m_page2 = Tab2::create();
@@ -218,14 +216,15 @@ bool NotepadLayer::setup(){
 	);
 	m_scroll->m_contentLayer->setPositionY(-208);
 	m_scroll->m_contentLayer->setContentHeight(412.5f);
-	m_scroll->setPosition(16, 14.2f);
+	m_scroll->setScale(0.95f);
+	m_scroll->setPosition(1.2f, 16.2f);
 	m_mainLayer->addChild(m_scroll);
 		
 	numLabels->setVisible(true);
 	m_page1->setVisible(true);
 
 	auto scrollbar = Scrollbar::create(m_scroll);
-	scrollbar->setPosition(450,116.25f);
+	scrollbar->setPosition(423.7f, 118.25f);
 	m_mainLayer->addChild(scrollbar);
 
 	m_page1->setPosition(screenSize / 2 + CCPoint{-11, 151});
@@ -327,11 +326,11 @@ void NotepadLayer::onPage(CCObject* sender) {
 
 NotepadLayer* NotepadLayer::create(){
 	auto ret = new NotepadLayer();
-	if (ret && ret->initAnchored(466.0f, 280.0f)){
+	if (ret && ret->initAnchored(440.0f, 280.0f)){
 
 		ret->autorelease();
 		return ret;
 	}
-	CC_SAFE_DELETE(ret);
+	delete ret;
 	return nullptr;
 }
