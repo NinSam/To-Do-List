@@ -3,7 +3,12 @@
 
 using namespace geode::prelude;
 
-bool NotepadLayer::setup(){
+bool NotepadLayer::init(){
+
+	if (!Popup::init(440.0f, 280.0f)) 
+	return false;
+
+	m_bgSprite->removeFromParentAndCleanup(true);
 
 	geode::cocos::handleTouchPriority(this);
 
@@ -63,24 +68,28 @@ bool NotepadLayer::setup(){
 		png = "geode.loader/GE_square03.png";
 	}
 
-    m_bgSprite->initWithFile(png);
-   	m_bgSprite->setContentSize({440.0f, 280.0f});
+	auto spritebg = CCScale9Sprite::create(png);
+	spritebg->setPosition(m_bgSprite->getPosition());
+	spritebg->setContentSize({440.0f, 280.0f});
+	m_mainLayer->addChild(spritebg);
+
 
     if (Mod::get()->getSettingValue<bool>("custom-theme-enable")){
 
-       	auto bgoutline = CCScale9Sprite::create("GJ_square07.png");
+       	auto bgoutline = NineSlice::create("GJ_square07.png");
 	    bgoutline->setContentSize({440.0f, 280.0f});
 
-		m_bgSprite->initWithFile("GJ_square06.png"); 
-		m_bgSprite->setColor(customColorTheme);
-        m_bgSprite->setContentSize({440.0f, 280.0f});
-        m_bgSprite->addChildAtPosition(bgoutline, Anchor::Center);
+		spritebg->initWithFile("GJ_square06.png");
+		spritebg->setColor(customColorTheme);
+        spritebg->setContentSize({440.0f, 280.0f});
+        spritebg->addChildAtPosition(bgoutline, Anchor::Center);
 
 	}
 
+
 	// ScrollLayer bg
 
-	auto bg = CCScale9Sprite::create("square02_001.png");
+	auto bg = NineSlice::create("square02_001.png");
 	bg->setPosition(211.2f, 118.1f);
 	bg->setOpacity(75);
 	bg->setContentSize({399, 194.1f});
@@ -160,13 +169,13 @@ bool NotepadLayer::setup(){
 
 	// Settings
 
-	auto settingsspr = CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png");
-	settingsspr->setScale(0.6f);
+	auto onSettingsSpr = CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png");
+	onSettingsSpr->setScale(0.6f);
 
-	auto openSettings = CCMenuItemSpriteExtra::create(settingsspr, this, menu_selector(NotepadLayer::OpenSettings));
-	m_buttonMenu->addChild(openSettings);
-	openSettings->setID("settings");
-	openSettings->setPosition(411, 254);
+	auto onSettingsBtn = CCMenuItemSpriteExtra::create(onSettingsSpr, this, menu_selector(NotepadLayer::onSettings));
+	m_buttonMenu->addChild(onSettingsBtn);
+	onSettingsBtn->setID("settings");
+	onSettingsBtn->setPosition(411, 254);
 
 	// pageMenu
 
@@ -214,7 +223,7 @@ bool NotepadLayer::setup(){
 		->setAutoGrowAxis(500)
 
 	);
-	m_scroll->m_contentLayer->setPositionY(-208);
+	m_scroll->m_contentLayer->setPositionY(-208.1f);
 	m_scroll->m_contentLayer->setContentHeight(412.5f);
 	m_scroll->setScale(0.95f);
 	m_scroll->setPosition(1.2f, 16.2f);
@@ -243,7 +252,7 @@ void NotepadLayer::onTouchFix(CCObject*){
 
 }
 
-void NotepadLayer::OpenSettings(CCObject*){
+void NotepadLayer::onSettings(CCObject*){
 	this->removeFromParentAndCleanup(true);
 	geode::openSettingsPopup(Mod::get());
 }
@@ -326,7 +335,7 @@ void NotepadLayer::onPage(CCObject* sender) {
 
 NotepadLayer* NotepadLayer::create(){
 	auto ret = new NotepadLayer();
-	if (ret && ret->initAnchored(440.0f, 280.0f)){
+	if (ret && ret->init()){
 
 		ret->autorelease();
 		return ret;

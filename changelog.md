@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.7
+
+- Ported to GD 2.2081 & Geode v5.0.0
+
 ## v1.1.6
 
 - You can now use custom colors for the notepad button

@@ -224,59 +224,59 @@ bool Tab3::init(){
 
 	// Checkboxes
 
-	auto toggle = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox), 1);
+	auto toggle = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox), 1);
 	layout->addChild(toggle);
 	toggle->setPosition(312, 234);
 	toggle->toggle(Mod::get()->getSavedValue<bool>("checkbox-tab-3", false));
 
-	auto toggle_2 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox2), 1);
+	auto toggle_2 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox2), 1);
 	toggle_2->toggle(false);
 	layout->addChild(toggle_2);
 	toggle_2->setPosition(312, 194);
 	toggle_2->toggle(Mod::get()->getSavedValue<bool>("checkbox-2-tab-3", false));
 
-	auto toggle_3 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox3), 1);
+	auto toggle_3 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox3), 1);
 	toggle_3->toggle(false);
 	layout->addChild(toggle_3);
 	toggle_3->setPosition(312, 154);
 	toggle_3->toggle(Mod::get()->getSavedValue<bool>("checkbox-3-tab-3", false));
 
-	auto toggle_4 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox4), 1);
+	auto toggle_4 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox4), 1);
 	toggle_4->toggle(false);
 	layout->addChild(toggle_4);
 	toggle_4->setPosition(312, 114);
 	toggle_4->toggle(Mod::get()->getSavedValue<bool>("checkbox-4-tab-3", false));
 
-	auto toggle_5 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox5), 1);
+	auto toggle_5 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox5), 1);
 	toggle_5->toggle(false);
 	layout->addChild(toggle_5);
 	toggle_5->setPosition(312, 74);
 	toggle_5->toggle(Mod::get()->getSavedValue<bool>("checkbox-5-tab-3", false));
 
-	auto toggle_6 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox6), 1);
+	auto toggle_6 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox6), 1);
 	layout->addChild(toggle_6);
 	toggle_6->setPosition(312, 34);
 	toggle_6->toggle(Mod::get()->getSavedValue<bool>("checkbox-6-tab-3", false));
 
-	auto toggle_7 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox7), 1);
+	auto toggle_7 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox7), 1);
 	toggle_7->toggle(false);
 	layout->addChild(toggle_7);
 	toggle_7->setPosition(312, -6);
 	toggle_7->toggle(Mod::get()->getSavedValue<bool>("checkbox-7-tab-3", false));
 
-	auto toggle_8 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox8), 1);
+	auto toggle_8 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox8), 1);
 	toggle_8->toggle(false);
 	layout->addChild(toggle_8);
 	toggle_8->setPosition(312, -46);
 	toggle_8->toggle(Mod::get()->getSavedValue<bool>("checkbox-8-tab-3", false));
 
-	auto toggle_9 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox9), 1);
+	auto toggle_9 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox9), 1);
 	toggle_9->toggle(false);
 	layout->addChild(toggle_9);
 	toggle_9->setPosition(312, -86);
 	toggle_9->toggle(Mod::get()->getSavedValue<bool>("checkbox-9-tab-3", false));
 
-	auto toggle_10 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::SaveCheckbox10), 1);
+	auto toggle_10 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(Tab3::saveCheckbox10), 1);
 	toggle_10->toggle(false);
 	layout->addChild(toggle_10);
 	toggle_10->setPosition(312, -126);
@@ -286,43 +286,43 @@ bool Tab3::init(){
 	return true;
 }
 
-void Tab3::SaveCheckbox(CCObject*){
+void Tab3::saveCheckbox(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-tab-3", false));;
 }
 
-void Tab3::SaveCheckbox2(CCObject*){
+void Tab3::saveCheckbox2(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-2-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-2-tab-3", false));
 }
 
-void Tab3::SaveCheckbox3(CCObject*){
+void Tab3::saveCheckbox3(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-3-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-3-tab-3", false));
 }
 
-void Tab3::SaveCheckbox4(CCObject*){
+void Tab3::saveCheckbox4(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-4-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-4-tab-3", false));
 }
 
-void Tab3::SaveCheckbox5(CCObject*){
+void Tab3::saveCheckbox5(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-5-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-5-tab-3", false));
 }
 
-void Tab3::SaveCheckbox6(CCObject*){
+void Tab3::saveCheckbox6(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-6-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-6-tab-3", false));
 }
 
-void Tab3::SaveCheckbox7(CCObject*){
+void Tab3::saveCheckbox7(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-7-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-7-tab-3", false));
 }
 
-void Tab3::SaveCheckbox8(CCObject*){
+void Tab3::saveCheckbox8(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-8-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-8-tab-3", false));
 }
 
-void Tab3::SaveCheckbox9(CCObject*){
+void Tab3::saveCheckbox9(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-9-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-9-tab-3", false));
 }
 
-void Tab3::SaveCheckbox10(CCObject*){
+void Tab3::saveCheckbox10(CCObject*){
 	Mod::get()->setSavedValue<bool>("checkbox-10-tab-3", !Mod::get()->getSavedValue<bool>("checkbox-10-tab-3", false));
 }
 
