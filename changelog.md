@@ -2,7 +2,7 @@
 
 ## v1.1.7
 
-- Ported to GD 2.2081 & Geode v5.0.0
+- Ported to GD 2.2081 & Geode v5.0.1
 
 ## v1.1.6
 
