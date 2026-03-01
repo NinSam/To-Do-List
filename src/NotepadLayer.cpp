@@ -114,6 +114,23 @@ bool NotepadLayer::init(){
 	touchFixes->addChild(touchfix);
 	touchfix->setOpacity(0);
 
+	auto touchfix2 = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("block008_topcolor_15_001.png"), this, menu_selector(NotepadLayer::onTouchFix));
+	touchfix2->setPosition(284.5f, -50);
+	#ifdef GEODE_IS_WINDOWS
+	touchfix2->setContentSize({385, 181});
+	#endif
+	#ifdef GEODE_IS_ANDROID
+	touchfix->setContentSize({385, 152});
+	#endif
+	#ifdef GEODE_IS_MACOS
+	touchfix->setContentSize({385, 181});
+	#endif
+	#ifdef GEODE_IS_IOS
+	touchfix->setContentSize({385, 152});
+	#endif
+	touchFixes->addChild(touchfix2);
+	touchfix2->setOpacity(0);
+
 
 	// Labels
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.8
+
+- Fixed TouchPriority issues at the bottom of the screen
+
 ## v1.1.7
 
 - Ported to GD 2.2081 & Geode v5.0.1
@@ -22,7 +26,7 @@
 
 ## v1.1.3
 
-- Fixed ScrollLayer culling issues from Geode 4.3.0
+- Fixed ScrollLayer culling issues from Geode v4.3.0
 
 ## v1.1.2
 
@@ -41,12 +45,12 @@
 
 ## v1.0.4
 
-- Ported to Geode 4.0.0-beta.1
+- Ported to Geode v4.0.0-beta.1
 - Added Mac Support
 
 ## v1.0.3
 
-- Ported to GD 2.2074 & Geode 4.0.0-alpha.1
+- Ported to GD 2.2074 & Geode v4.0.0-alpha.1
 
 ## v1.0.2
 
