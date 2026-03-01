@@ -120,13 +120,13 @@ bool NotepadLayer::init(){
 	touchfix2->setContentSize({385, 181});
 	#endif
 	#ifdef GEODE_IS_ANDROID
-	touchfix->setContentSize({385, 152});
+	touchfix2->setContentSize({385, 152});
 	#endif
 	#ifdef GEODE_IS_MACOS
-	touchfix->setContentSize({385, 181});
+	touchfix2->setContentSize({385, 181});
 	#endif
 	#ifdef GEODE_IS_IOS
-	touchfix->setContentSize({385, 152});
+	touchfix2->setContentSize({385, 152});
 	#endif
 	touchFixes->addChild(touchfix2);
 	touchfix2->setOpacity(0);
