@@ -1,6 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/EditorUI.hpp>
-#include "NotepadManager.hpp"
+#include "NotepadLayer.hpp"
 
 using namespace geode::prelude;
 
@@ -10,8 +10,8 @@ class $modify(MyNotepadLayer, EditorUI) {
 		CCMenuItemSpriteExtra* notepadButton;
 	};
 	
-	bool init(LevelEditorLayer* p0) {	
-		if (!EditorUI::init(p0)) 
+	bool init(LevelEditorLayer* p0) {
+		if (!EditorUI::init(p0))
 		return false;
 
 		auto customButtonColor = Mod::get()->getSettingValue<ccColor3B>("custom-button-color");
@@ -21,7 +21,7 @@ class $modify(MyNotepadLayer, EditorUI) {
 		auto spr = CCSprite::create("notepad_btn.png"_spr);
 
 		m_fields->notepadButton = CCMenuItemSpriteExtra::create(spr, this, menu_selector(MyNotepadLayer::onNotepadButton));
-		m_fields->notepadButton->setID("To-Do List"_spr);
+		m_fields->notepadButton->setID("to-do-list"_spr);
 		undoMenu->addChild(m_fields->notepadButton);
 
 		spr->setPositionY(17.5f);

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.9
+
+- Removed examples on some TextInputs when opening NotepadLayer for the first time
+- Fixed a bug where you can't type special characters in TextInputs
+- Reworked how TextInputs & Checkboxes are saved
+
 ## v1.1.8
 
 - Fixed TouchPriority issues at the bottom of the screen

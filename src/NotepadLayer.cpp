@@ -1,4 +1,4 @@
-#include "NotepadManager.hpp"
+#include "NotepadLayer.hpp"
 #include <Geode/ui/GeodeUI.hpp>
 
 using namespace geode::prelude;
@@ -24,8 +24,10 @@ bool NotepadLayer::init(){
 	auto pageMenu = CCMenu::create();
 	auto touchFixes = CCMenu::create();
 	auto numLabels = CCLayer::create();
+	auto layout = CCMenu::create();
 
 	numLabels->setID("numbers");
+	layout->setID("to-do-list");
 
 	m_mainLayer->addChild(touchFixes, 1);
 	touchFixes->setPosition(-64, -19.0f);
@@ -97,7 +99,7 @@ bool NotepadLayer::init(){
 
 	// touch fix
 
-	auto touchfix = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("block008_topcolor_15_001.png"), this, menu_selector(NotepadLayer::onTouchFix));
+	auto touchfix = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("block008_topcolor_15_001.png"), this, nullptr);
 	touchfix->setPosition(284.5f, 325);
 	#ifdef GEODE_IS_WINDOWS
 	touchfix->setContentSize({385, 181});
@@ -114,7 +116,7 @@ bool NotepadLayer::init(){
 	touchFixes->addChild(touchfix);
 	touchfix->setOpacity(0);
 
-	auto touchfix2 = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("block008_topcolor_15_001.png"), this, menu_selector(NotepadLayer::onTouchFix));
+	auto touchfix2 = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("block008_topcolor_15_001.png"), this, nullptr);
 	touchfix2->setPosition(284.5f, -50);
 	#ifdef GEODE_IS_WINDOWS
 	touchfix2->setContentSize({385, 181});
@@ -184,6 +186,284 @@ bool NotepadLayer::init(){
 	tenth->setScale(0.6f);
 	numLabels->addChild(tenth);
 
+	// TextInputs
+
+	m_input1 = TextInput::create(200, "", "bigFont.fnt");
+	m_input1->setPosition(153, 234);
+	m_input1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab1, "")));
+	m_input1->setCommonFilter(CommonFilter::Any);
+	m_input1->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab1, str));
+
+	});
+	layout->addChild(m_input1);
+
+	m_input2 = TextInput::create(200, "", "bigFont.fnt");
+	m_input2->setPosition(153, 194);
+	m_input2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab2, "")));
+	m_input2->setCommonFilter(CommonFilter::Any);
+	m_input2->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab2, str));
+
+	});
+	layout->addChild(m_input2);
+
+	m_input3 = TextInput::create(200, "", "bigFont.fnt");
+	m_input3->setPosition(153, 154);
+	m_input3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab3, "")));
+	m_input3->setCommonFilter(CommonFilter::Any);
+	m_input3->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab3, str));
+
+	});
+	layout->addChild(m_input3);
+
+	m_input4 = TextInput::create(200, "", "bigFont.fnt");
+	m_input4->setPosition(153, 114);
+	m_input4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab4, "")));
+	m_input4->setCommonFilter(CommonFilter::Any);
+	m_input4->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab4, str));
+
+	});
+	layout->addChild(m_input4);
+
+	m_input5 = TextInput::create(200, "", "bigFont.fnt");
+	m_input5->setPosition(153, 74);
+	m_input5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab5, "")));
+	m_input5->setCommonFilter(CommonFilter::Any);
+	m_input5->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab5, str));
+
+	});
+	layout->addChild(m_input5);
+
+	m_input6 = TextInput::create(200, "", "bigFont.fnt");
+	m_input6->setPosition(153, 34);
+	m_input6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab6, "")));
+	m_input6->setCommonFilter(CommonFilter::Any);
+	m_input6->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab6, str));
+
+	});
+	layout->addChild(m_input6);
+
+	m_input7 = TextInput::create(200, "", "bigFont.fnt");
+	m_input7->setPosition(153, -6);
+	m_input7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab7, "")));
+	m_input7->setCommonFilter(CommonFilter::Any);
+	m_input7->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab7, str));
+
+	});
+	layout->addChild(m_input7);
+
+	m_input8 = TextInput::create(200, "", "bigFont.fnt");
+	m_input8->setPosition(153, -46);
+	m_input8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab8, "")));
+	m_input8->setCommonFilter(CommonFilter::Any);
+	m_input8->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab8, str));
+
+	});
+	layout->addChild(m_input8);
+
+	m_input9 = TextInput::create(200, "", "bigFont.fnt");
+	m_input9->setPosition(153, -86);
+	m_input9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab9, "")));
+	m_input9->setCommonFilter(CommonFilter::Any);
+	m_input9->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab9, str));
+
+	});
+	layout->addChild(m_input9);
+
+	m_input10 = TextInput::create(200, "", "bigFont.fnt");
+	m_input10->setPosition(153, -126);
+	m_input10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab10, "")));
+	m_input10->setCommonFilter(CommonFilter::Any);
+	m_input10->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputTab10, str));
+
+	});
+	layout->addChild(m_input10);
+
+
+	// Priority
+
+    m_inputPriority1 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority1->setPosition(395, 234);
+	m_inputPriority1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString1, "")));
+	m_inputPriority1->setCommonFilter(CommonFilter::Any);
+	m_inputPriority1->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString1, str));
+
+	});
+	layout->addChild(m_inputPriority1);
+
+   	m_inputPriority2 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority2->setPosition(395, 194);
+	m_inputPriority2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString2, "")));
+	m_inputPriority2->setCommonFilter(CommonFilter::Any);
+	m_inputPriority2->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString2, str));
+
+	});
+	layout->addChild(m_inputPriority2);
+
+   	m_inputPriority3 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority3->setPosition(395, 154);
+	m_inputPriority3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString3, "")));
+	m_inputPriority3->setCommonFilter(CommonFilter::Any);
+	m_inputPriority3->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString3, str));
+
+	});
+	layout->addChild(m_inputPriority3);
+
+   	m_inputPriority4 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority4->setPosition(395, 114);
+	m_inputPriority4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString4, "")));
+	m_inputPriority4->setCommonFilter(CommonFilter::Any);
+	m_inputPriority4->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString4, str));
+
+	});
+	layout->addChild(m_inputPriority4);
+
+    m_inputPriority5 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority5->setPosition(395, 74);
+	m_inputPriority5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString5, "")));
+	m_inputPriority5->setCommonFilter(CommonFilter::Any);
+	m_inputPriority5->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString5, str));
+
+	});
+	layout->addChild(m_inputPriority5);
+
+	m_inputPriority6 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority6->setPosition(395, 34);
+	m_inputPriority6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString6, "")));
+	m_inputPriority6->setCommonFilter(CommonFilter::Any);
+	m_inputPriority6->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString6, str));
+
+	});
+	layout->addChild(m_inputPriority6);
+
+    m_inputPriority7 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority7->setPosition(395, -6);
+	m_inputPriority7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString7, "")));
+	m_inputPriority7->setCommonFilter(CommonFilter::Any);
+	m_inputPriority7->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString7, str));
+
+	});
+	layout->addChild(m_inputPriority7);
+
+   	m_inputPriority8 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority8->setPosition(395, -46);
+	m_inputPriority8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString8, "")));
+	m_inputPriority8->setCommonFilter(CommonFilter::Any);
+	m_inputPriority8->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString8, str));
+
+	});
+	layout->addChild(m_inputPriority8);
+
+    m_inputPriority9 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority9->setPosition(395, -86);
+	m_inputPriority9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString9, "")));
+	m_inputPriority9->setCommonFilter(CommonFilter::Any);
+	m_inputPriority9->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString9, str));
+
+	});
+	layout->addChild(m_inputPriority9);
+
+    m_inputPriority10 = TextInput::create(50, "", "bigFont.fnt");
+	m_inputPriority10->setPosition(395, -126);
+	m_inputPriority10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString10, "")));
+	m_inputPriority10->setCommonFilter(CommonFilter::Any);
+	m_inputPriority10->setCallback([this](std::string const& str){
+
+    (Mod::get()->setSavedValue<std::string>(m_inputPriorityString10, str));
+
+	});
+	layout->addChild(m_inputPriority10);
+
+	// Checkboxes
+
+	m_toggle1 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox), 1);
+	layout->addChild(m_toggle1);
+	m_toggle1->setPosition(312, 234);
+	m_toggle1->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab1, false));
+
+	m_toggle2 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox2), 1);
+	layout->addChild(m_toggle2);
+	m_toggle2->setPosition(312, 194);
+	m_toggle2->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab2, false));
+
+	m_toggle3 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox3), 1);
+	layout->addChild(m_toggle3);
+	m_toggle3->setPosition(312, 154);
+	m_toggle3->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab3, false));
+
+	m_toggle4 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox4), 1);
+	layout->addChild(m_toggle4);
+	m_toggle4->setPosition(312, 114);
+	m_toggle4->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab4, false));
+
+	m_toggle5 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox5), 1);
+	layout->addChild(m_toggle5);
+	m_toggle5->setPosition(312, 74);
+	m_toggle5->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab5, false));
+
+	m_toggle6 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox6), 1);
+	layout->addChild(m_toggle6);
+	m_toggle6->setPosition(312, 34);
+	m_toggle6->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab6, false));
+
+	m_toggle7 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox7), 1);
+	layout->addChild(m_toggle7);
+	m_toggle7->setPosition(312, -6);
+	m_toggle7->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab7, false));
+
+	m_toggle8 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox8), 1);
+	layout->addChild(m_toggle8);
+	m_toggle8->setPosition(312, -46);
+	m_toggle8->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab8, false));
+
+	m_toggle9 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox9), 1);
+	layout->addChild(m_toggle9);
+	m_toggle9->setPosition(312, -86);
+	m_toggle9->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab9, false));
+
+	m_toggle10 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox10), 1);
+	layout->addChild(m_toggle10);
+	m_toggle10->setPosition(312, -126);
+	m_toggle10->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab10, false));
+
+
 	// Settings
 
 	auto onSettingsSpr = CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png");
@@ -199,6 +479,7 @@ bool NotepadLayer::init(){
 	m_inputName = TextInput::create(100, "1/5", "bigFont.fnt");
 	m_inputName->setPosition(284.5f, 268);
 	m_inputName->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_savedValue, "")));
+	m_inputName->setCommonFilter(CommonFilter::Any);
 	m_inputName->setCallback([this](std::string const& str){
 
     (Mod::get()->setSavedValue<std::string>(m_savedValue, str));
@@ -216,22 +497,13 @@ bool NotepadLayer::init(){
     pageRight->setTag(1);
     pageMenu->addChild(pageRight);
 
-	m_page1 = Tab1::create();
-	m_page2 = Tab2::create();
-	m_page3 = Tab3::create();
-	m_page4 = Tab4::create();
-	m_page5 = Tab5::create();
 
 	// ScrollLayer
 
-	m_scroll = ScrollLayer::create({420, 204.4f},true, true);
+	m_scroll = ScrollLayer::create({420, 204.4f}, true, true);
+	m_scroll->m_contentLayer->addChild(numLabels);
+	m_scroll->m_contentLayer->addChild(layout);	
 
-	m_scroll->m_contentLayer->addChild(numLabels);	
-	m_scroll->m_contentLayer->addChild(m_page1);
-	m_scroll->m_contentLayer->addChild(m_page2);
-	m_scroll->m_contentLayer->addChild(m_page3);
-	m_scroll->m_contentLayer->addChild(m_page4);
-	m_scroll->m_contentLayer->addChild(m_page5);
 	m_scroll->m_contentLayer->setLayout(
 
 		ColumnLayout::create()
@@ -245,28 +517,16 @@ bool NotepadLayer::init(){
 	m_scroll->setScale(0.95f);
 	m_scroll->setPosition(1.2f, 16.2f);
 	m_mainLayer->addChild(m_scroll);
-		
-	numLabels->setVisible(true);
-	m_page1->setVisible(true);
 
 	auto scrollbar = Scrollbar::create(m_scroll);
 	scrollbar->setPosition(423.7f, 118.25f);
+	scrollbar->setScaleX(1.25f);
 	m_mainLayer->addChild(scrollbar);
 
-	m_page1->setPosition(screenSize / 2 + CCPoint{-11, 151});
-	m_page2->setPositionY(99999);
-	m_page3->setPositionY(99999);
-	m_page4->setPositionY(99999);
-	m_page5->setPositionY(99999);
+	layout->setPosition(screenSize / 2 + CCPoint{-11, 151});
 	numLabels->setPosition(screenSize / 2 + CCPoint{-11, 151});
-
-	scrollbar->setScaleX(1.25f);
 		
 	return true;
-}
-
-void NotepadLayer::onTouchFix(CCObject*){
-
 }
 
 void NotepadLayer::onSettings(CCObject*){
@@ -278,27 +538,80 @@ void NotepadLayer::onPage(CCObject* sender) {
     m_page += sender->getTag();
 	m_scroll->scrollToTop();
 
-    auto page = static_cast<CCMenuItemSpriteExtra*>(sender);
-	auto screenSize = CCDirector::sharedDirector()->getWinSize();
-
 	if (m_page > 0){
-		m_page2->setPosition(screenSize / 2 + CCPoint{-11, 151});
-		m_page2->setVisible(true);
-		m_page1->setPositionY(99999);
-		m_page3->setPositionY(99999);
-		m_page5->setPositionY(99999);
 
+		m_inputTab1 = "input-1-tab-2";
+		m_inputTab2 = "input-2-tab-2";
+		m_inputTab3 = "input-3-tab-2";
+		m_inputTab4 = "input-4-tab-2";
+		m_inputTab5 = "input-5-tab-2";
+		m_inputTab6 = "input-6-tab-2";
+		m_inputTab7 = "input-7-tab-2";
+		m_inputTab8 = "input-8-tab-2";
+		m_inputTab9 = "input-9-tab-2";
+		m_inputTab10 = "input-10-tab-2";
+
+		m_inputPriorityString1 = "input-priority-one-tab-2";
+		m_inputPriorityString2 = "input-priority-two-tab-2";
+		m_inputPriorityString3 = "input-priority-three-tab-2";
+		m_inputPriorityString4 = "input-priority-four-tab-2";
+		m_inputPriorityString5 = "input-priority-five-tab-2";
+		m_inputPriorityString6 = "input-priority-six-tab-2";
+		m_inputPriorityString7 = "input-priority-seven-tab-2";
+		m_inputPriorityString8 = "input-priority-eight-tab-2";
+		m_inputPriorityString9 = "input-priority-nine-tab-2";
+		m_inputPriorityString10 = "input-priority-ten-tab-2";
+
+		m_toggleTab1 = "checkbox-tab-2";
+		m_toggleTab2 = "checkbox-2-tab-2";
+		m_toggleTab3 = "checkbox-3-tab-2";
+		m_toggleTab4 = "checkbox-4-tab-2";
+		m_toggleTab5 = "checkbox-5-tab-2";
+		m_toggleTab6 = "checkbox-6-tab-2";
+		m_toggleTab7 = "checkbox-7-tab-2";
+		m_toggleTab8 = "checkbox-8-tab-2";
+		m_toggleTab9 = "checkbox-9-tab-2";
+		m_toggleTab10 = "checkbox-10-tab-2";
+	
 		m_savedValue = "input-name-1-tab-2";
 		m_inputName->setPlaceholder("2/5");
 	 	m_pageLeft->setTag(-2);	
 				
 	}
 	if (m_page > 1){
-		m_page3->setPosition(screenSize / 2 + CCPoint{-11, 151});
-		m_page3->setVisible(true);
-		m_page2->setPositionY(99999);
-		m_page4->setPositionY(99999);
-		m_page1->setPositionY(99999);
+
+		m_inputTab1 = "input-1-tab-3";
+		m_inputTab2 = "input-2-tab-3";
+		m_inputTab3 = "input-3-tab-3";
+		m_inputTab4 = "input-4-tab-3";
+		m_inputTab5 = "input-5-tab-3";
+		m_inputTab6 = "input-6-tab-3";
+		m_inputTab7 = "input-7-tab-3";
+		m_inputTab8 = "input-8-tab-3";
+		m_inputTab9 = "input-9-tab-3";
+		m_inputTab10 = "input-10-tab-3";
+
+		m_inputPriorityString1 = "input-priority-one-tab-3";
+		m_inputPriorityString2 = "input-priority-two-tab-3";
+		m_inputPriorityString3 = "input-priority-three-tab-3";
+		m_inputPriorityString4 = "input-priority-four-tab-3";
+		m_inputPriorityString5 = "input-priority-five-tab-3";
+		m_inputPriorityString6 = "input-priority-six-tab-3";
+		m_inputPriorityString7 = "input-priority-seven-tab-3";
+		m_inputPriorityString8 = "input-priority-eight-tab-3";
+		m_inputPriorityString9 = "input-priority-nine-tab-3";
+		m_inputPriorityString10 = "input-priority-ten-tab-3";
+
+		m_toggleTab1 = "checkbox-tab-3";
+		m_toggleTab2 = "checkbox-2-tab-3";
+		m_toggleTab3 = "checkbox-3-tab-3";
+		m_toggleTab4 = "checkbox-4-tab-3";
+		m_toggleTab5 = "checkbox-5-tab-3";
+		m_toggleTab6 = "checkbox-6-tab-3";
+		m_toggleTab7 = "checkbox-7-tab-3";
+		m_toggleTab8 = "checkbox-8-tab-3";
+		m_toggleTab9 = "checkbox-9-tab-3";
+		m_toggleTab10 = "checkbox-10-tab-3";
 
 		m_savedValue = "input-name-1-tab-3";
 		m_inputName->setPlaceholder("3/5");
@@ -306,22 +619,78 @@ void NotepadLayer::onPage(CCObject* sender) {
 				
 	}
 	if (m_page > 2){
-		m_page4->setPosition(screenSize / 2 + CCPoint{-11, 151});
-		m_page4->setVisible(true);
-		m_page3->setPositionY(99999);
-		m_page5->setPositionY(99999);
-		m_page1->setPositionY(99999);
+
+		m_inputTab1 = "input-1-tab-4";
+		m_inputTab2 = "input-2-tab-4";
+		m_inputTab3 = "input-3-tab-4";
+		m_inputTab4 = "input-4-tab-4";
+		m_inputTab5 = "input-5-tab-4";
+		m_inputTab6 = "input-6-tab-4";
+		m_inputTab7 = "input-7-tab-4";
+		m_inputTab8 = "input-8-tab-4";
+		m_inputTab9 = "input-9-tab-4";
+		m_inputTab10 = "input-10-tab-4";
+
+		m_inputPriorityString1 = "input-priority-one-tab-4";
+		m_inputPriorityString2 = "input-priority-two-tab-4";
+		m_inputPriorityString3 = "input-priority-three-tab-4";
+		m_inputPriorityString4 = "input-priority-four-tab-4";
+		m_inputPriorityString5 = "input-priority-five-tab-4";
+		m_inputPriorityString6 = "input-priority-six-tab-4";
+		m_inputPriorityString7 = "input-priority-seven-tab-4";
+		m_inputPriorityString8 = "input-priority-eight-tab-4";
+		m_inputPriorityString9 = "input-priority-nine-tab-4";
+		m_inputPriorityString10 = "input-priority-ten-tab-4";
+		
+		m_toggleTab1 = "checkbox-tab-4";
+		m_toggleTab2 = "checkbox-2-tab-4";
+		m_toggleTab3 = "checkbox-3-tab-4";
+		m_toggleTab4 = "checkbox-4-tab-4";
+		m_toggleTab5 = "checkbox-5-tab-4";
+		m_toggleTab6 = "checkbox-6-tab-4";
+		m_toggleTab7 = "checkbox-7-tab-4";
+		m_toggleTab8 = "checkbox-8-tab-4";
+		m_toggleTab9 = "checkbox-9-tab-4";
+		m_toggleTab10 = "checkbox-10-tab-4";
 
 		m_savedValue = "input-name-1-tab-4";
 		m_inputName->setPlaceholder("4/5");
 
 	}
 	if (m_page > 3){
-		m_page5->setPosition(screenSize / 2 + CCPoint{-11, 151});
-		m_page5->setVisible(true);
-		m_page4->setPositionY(99999);
-		m_page1->setPositionY(99999);
-		m_page2->setPositionY(99999);
+
+		m_inputTab1 = "input-1-tab-5";
+		m_inputTab2 = "input-2-tab-5";
+		m_inputTab3 = "input-3-tab-5";
+		m_inputTab4 = "input-4-tab-5";
+		m_inputTab5 = "input-5-tab-5";
+		m_inputTab6 = "input-6-tab-5";
+		m_inputTab7 = "input-7-tab-5";
+		m_inputTab8 = "input-8-tab-5";
+		m_inputTab9 = "input-9-tab-5";
+		m_inputTab10 = "input-10-tab-5";
+
+		m_inputPriorityString1 = "input-priority-one-tab-5";
+		m_inputPriorityString2 = "input-priority-two-tab-5";
+		m_inputPriorityString3 = "input-priority-three-tab-5";
+		m_inputPriorityString4 = "input-priority-four-tab-5";
+		m_inputPriorityString5 = "input-priority-five-tab-5";
+		m_inputPriorityString6 = "input-priority-six-tab-5";
+		m_inputPriorityString7 = "input-priority-seven-tab-5";
+		m_inputPriorityString8 = "input-priority-eight-tab-5";
+		m_inputPriorityString9 = "input-priority-nine-tab-5";
+		m_inputPriorityString10 = "input-priority-ten-tab-5";
+
+		m_toggleTab1 = "checkbox-tab-5";
+		m_toggleTab2 = "checkbox-2-tab-5";
+		m_toggleTab3 = "checkbox-3-tab-5";
+		m_toggleTab4 = "checkbox-4-tab-5";
+		m_toggleTab5 = "checkbox-5-tab-5";
+		m_toggleTab6 = "checkbox-6-tab-5";
+		m_toggleTab7 = "checkbox-7-tab-5";
+		m_toggleTab8 = "checkbox-8-tab-5";
+		m_toggleTab9 = "checkbox-9-tab-5";
+		m_toggleTab10 = "checkbox-10-tab-5";
 
 		m_savedValue = "input-name-1-tab-5";
 		m_inputName->setPlaceholder("5/5");
@@ -329,11 +698,39 @@ void NotepadLayer::onPage(CCObject* sender) {
 				
 	}
 	if (m_page > 4){
-		m_page1->setPosition(screenSize / 2 + CCPoint{-11, 151});
-		m_page1->setVisible(true);
-		m_page5->setPositionY(99999);
-		m_page2->setPositionY(99999);
-		m_page4->setPositionY(99999);
+	
+		m_inputTab1 = "input-1-tab-1";
+		m_inputTab2 = "input-2-tab-1";
+		m_inputTab3 = "input-3-tab-1";
+		m_inputTab4 = "input-4-tab-1";
+		m_inputTab5 = "input-5-tab-1";
+		m_inputTab6 = "input-6-tab-1";
+		m_inputTab7 = "input-7-tab-1";
+		m_inputTab8 = "input-8-tab-1";
+		m_inputTab9 = "input-9-tab-1";
+		m_inputTab10 = "input-10-tab-1";
+
+		m_inputPriorityString1 = "input-priority-one-tab-1";
+		m_inputPriorityString2 = "input-priority-two-tab-1";
+		m_inputPriorityString3 = "input-priority-three-tab-1";
+		m_inputPriorityString4 = "input-priority-four-tab-1";
+		m_inputPriorityString5 = "input-priority-five-tab-1";
+		m_inputPriorityString6 = "input-priority-six-tab-1";
+		m_inputPriorityString7 = "input-priority-seven-tab-1";
+		m_inputPriorityString8 = "input-priority-eight-tab-1";
+		m_inputPriorityString9 = "input-priority-nine-tab-1";
+		m_inputPriorityString10 = "input-priority-ten-tab-1";
+
+		m_toggleTab1 = "checkbox-tab-1";
+		m_toggleTab2 = "checkbox-2-tab-1";
+		m_toggleTab3 = "checkbox-3-tab-1";
+		m_toggleTab4 = "checkbox-4-tab-1";
+		m_toggleTab5 = "checkbox-5-tab-1";
+		m_toggleTab6 = "checkbox-6-tab-1";
+		m_toggleTab7 = "checkbox-7-tab-1";
+		m_toggleTab8 = "checkbox-8-tab-1";
+		m_toggleTab9 = "checkbox-9-tab-1";
+		m_toggleTab10 = "checkbox-10-tab-1";
 
 		m_savedValue = "input-name-1-tab-1";
 		m_inputName->setPlaceholder("1/5");
@@ -342,12 +739,84 @@ void NotepadLayer::onPage(CCObject* sender) {
 		m_page = 0;
 	}
 
-	m_inputName->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_savedValue, "")));
-	m_inputName->setCallback([this](std::string const& str){
+	// TextInputs
 
-    (Mod::get()->setSavedValue<std::string>(m_savedValue, str));
-		
-	});
+	m_inputName->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_savedValue, "")));
+
+	m_input1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab1, "")));
+	m_input2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab2, "")));
+	m_input3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab3, "")));
+	m_input4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab4, "")));
+	m_input5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab5, "")));
+	m_input6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab6, "")));
+	m_input7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab7, "")));
+	m_input8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab8, "")));
+	m_input9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab9, "")));
+	m_input10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputTab10, "")));
+
+	m_inputPriority1->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString1, "")));
+	m_inputPriority2->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString2, "")));
+	m_inputPriority3->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString3, "")));
+	m_inputPriority4->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString4, "")));
+	m_inputPriority5->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString5, "")));
+	m_inputPriority6->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString6, "")));
+	m_inputPriority7->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString7, "")));
+	m_inputPriority8->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString8, "")));
+	m_inputPriority9->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString9, "")));
+	m_inputPriority10->setString(fmt::format("{}", Mod::get()->getSavedValue<std::string>(m_inputPriorityString10, "")));
+
+	// Checkboxes
+
+	m_toggle1->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab1, false));
+	m_toggle2->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab2, false));
+	m_toggle3->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab3, false));
+	m_toggle4->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab4, false));
+	m_toggle5->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab5, false));
+	m_toggle6->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab6, false));
+	m_toggle7->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab7, false));
+	m_toggle8->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab8, false));
+	m_toggle9->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab9, false));
+	m_toggle10->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab10, false));
+}
+
+void NotepadLayer::saveCheckbox(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab1, !Mod::get()->getSavedValue<bool>(m_toggleTab1, false));
+}
+
+void NotepadLayer::saveCheckbox2(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab2, !Mod::get()->getSavedValue<bool>(m_toggleTab2, false));
+}
+
+void NotepadLayer::saveCheckbox3(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab3, !Mod::get()->getSavedValue<bool>(m_toggleTab3, false));
+}
+
+void NotepadLayer::saveCheckbox4(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab4, !Mod::get()->getSavedValue<bool>(m_toggleTab4, false));
+}
+
+void NotepadLayer::saveCheckbox5(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab5, !Mod::get()->getSavedValue<bool>(m_toggleTab5, false));
+}
+
+void NotepadLayer::saveCheckbox6(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab6, !Mod::get()->getSavedValue<bool>(m_toggleTab6, false));
+}
+
+void NotepadLayer::saveCheckbox7(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab7, !Mod::get()->getSavedValue<bool>(m_toggleTab7, false));
+}
+
+void NotepadLayer::saveCheckbox8(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab8, !Mod::get()->getSavedValue<bool>(m_toggleTab8, false));
+}
+
+void NotepadLayer::saveCheckbox9(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab9, !Mod::get()->getSavedValue<bool>(m_toggleTab9, false));
+}
+
+void NotepadLayer::saveCheckbox10(CCObject*){
+	Mod::get()->setSavedValue<bool>(m_toggleTab10, !Mod::get()->getSavedValue<bool>(m_toggleTab10, false));
 }
 
 NotepadLayer* NotepadLayer::create(){
