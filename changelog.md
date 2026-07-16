@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0
+
+- To-Do Lists now saves across all created levels
+- Added Clear All button
+- Added Clear Row buttons
+- Added Dependency: Editor Level ID API
+
 ## v1.1.9
 
 - Removed examples on some TextInputs when opening NotepadLayer for the first time

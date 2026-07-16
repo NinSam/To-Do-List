@@ -1,5 +1,5 @@
 {
-	"geode": "5.5.3",
+	"geode": "5.8.2",
 	"gd": {
 		"win": "2.2081",
 		"android": "2.2081",
@@ -8,15 +8,20 @@
 	},
 	"id": "ninsam.to-do_list",
 	"name": "To-Do List",
-	"version": "v1.1.9",
+	"version": "v1.2.0",
 	"developer": "NinSam",
-	"description": "Adds a To-Do List in the GD editor",
+	"description": "Adds a To-Do List in the editor",
 	"dependencies":{
 
 		"geode.node-ids": {
 			"version": "1.23.3",
             "required": true
+		},
+		"cvolton.level-id-api": {
+			"version": "2.0.0",
+            "required": true
 		}
+		
 	},
 	"tags": [
 		"offline",
