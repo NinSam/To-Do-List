@@ -418,52 +418,52 @@ bool NotepadLayer::init(){
 
 	m_toggle1 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox1), 1);
 	layout->addChild(m_toggle1);
-	m_toggle1->setPosition(287, 234);
+	m_toggle1->setPosition(288, 234);
 	m_toggle1->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab1, false));
 
 	m_toggle2 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox2), 1);
 	layout->addChild(m_toggle2);
-	m_toggle2->setPosition(287, 194);
+	m_toggle2->setPosition(288, 194);
 	m_toggle2->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab2, false));
 
 	m_toggle3 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox3), 1);
 	layout->addChild(m_toggle3);
-	m_toggle3->setPosition(287, 154);
+	m_toggle3->setPosition(288, 154);
 	m_toggle3->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab3, false));
 
 	m_toggle4 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox4), 1);
 	layout->addChild(m_toggle4);
-	m_toggle4->setPosition(287, 114);
+	m_toggle4->setPosition(288, 114);
 	m_toggle4->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab4, false));
 
 	m_toggle5 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox5), 1);
 	layout->addChild(m_toggle5);
-	m_toggle5->setPosition(287, 74);
+	m_toggle5->setPosition(288, 74);
 	m_toggle5->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab5, false));
 
 	m_toggle6 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox6), 1);
 	layout->addChild(m_toggle6);
-	m_toggle6->setPosition(287, 34);
+	m_toggle6->setPosition(288, 34);
 	m_toggle6->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab6, false));
 
 	m_toggle7 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox7), 1);
 	layout->addChild(m_toggle7);
-	m_toggle7->setPosition(287, -6);
+	m_toggle7->setPosition(288, -6);
 	m_toggle7->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab7, false));
 
 	m_toggle8 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox8), 1);
 	layout->addChild(m_toggle8);
-	m_toggle8->setPosition(287, -46);
+	m_toggle8->setPosition(288, -46);
 	m_toggle8->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab8, false));
 
 	m_toggle9 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox9), 1);
 	layout->addChild(m_toggle9);
-	m_toggle9->setPosition(287, -86);
+	m_toggle9->setPosition(288, -86);
 	m_toggle9->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab9, false));
 
 	m_toggle10 = CCMenuItemToggler::createWithStandardSprites(this, menu_selector(NotepadLayer::saveCheckbox10), 1);
 	layout->addChild(m_toggle10);
-	m_toggle10->setPosition(287, -126);
+	m_toggle10->setPosition(288, -126);
 	m_toggle10->toggle(Mod::get()->getSavedValue<bool>(m_toggleTab10, false));
 
 	// Clear Row Buttons
@@ -533,7 +533,7 @@ bool NotepadLayer::init(){
 	// Level Name
 
 	auto levelNameLabel = CCTextInputNode::create(250, 0, "", "goldFont.fnt");
-	levelNameLabel->setPosition(284.5f, 270);
+	levelNameLabel->setPosition(284.5f, 271);
 	levelNameLabel->setString(Mod::get()->getSavedValue<std::string>("editor-level-name"));
 	levelName->addChild(levelNameLabel);
 
@@ -575,7 +575,7 @@ void NotepadLayer::onSettings(CCObject*){
 
 void NotepadLayer::onClearAll(CCObject*){
 
-	geode::createQuickPopup("Clear All", "Are you sure you want to <cr>clear</c> all rows?", "No", "Yes", [this](auto, bool yes) {
+	geode::createQuickPopup("Clear All Rows", "Are you sure you want to <cr>clear</c> all rows?", "No", "Yes", [this](auto, bool yes) {
         if (yes) {
 
 			m_input1->setString(Mod::get()->getSavedValue<std::string>(m_inputTab1, Mod::get()->setSavedValue<std::string>(m_inputTab1, "")));

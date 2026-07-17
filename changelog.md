@@ -2,10 +2,11 @@
 
 ## v1.2.0
 
-- To-Do Lists now saves across all created levels
-- Added Clear All button
-- Added Clear Row buttons
+- Reworked how To-Do Lists are saved (you are no longer limited to 5 To-Do Lists)
 - Added Dependency: Editor Level ID API
+- Added Clear All Rows button
+- Added Clear Row buttons
+- Opening NotepadLayer will automatically get the level name
 
 ## v1.1.9
 
